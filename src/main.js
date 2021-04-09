@@ -4,7 +4,6 @@ import "ant-design-vue/dist/antd.css";
 import store from "./store";
 import router from "./router";
 import App from "./App.vue";
-import "./index.css";
 
 const app = createApp(App);
 

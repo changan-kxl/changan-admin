@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HelloWorld from "../components/HelloWorld.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
 
 const routerHistory = createWebHistory(); // 引入路由方式
 const routes = [
