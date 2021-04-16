@@ -1,0 +1,3 @@
+<template>
+  <div>这是消息中心</div>
+</template>

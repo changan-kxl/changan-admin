@@ -6,6 +6,7 @@ const { resolve } = require("path");
 
 export default defineConfig({
   resolve: {
+    extensions: [".js", ".vue", ".json"], //导入忽略后缀
     alias: {
       "@": resolve(__dirname, "src"),
     },

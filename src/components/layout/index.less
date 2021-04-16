@@ -1,0 +1,62 @@
+#components-layout-demo-custom-trigger {
+    height: 100%;
+
+    .logo-con {
+        height: 64px;
+        position: relative;
+        line-height: 64px;
+        padding-left: 24px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        overflow: hidden;
+        background-color: #053434;
+
+        img {
+            width: 32px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            color: #fefefe;
+            font-size: 20px;
+            margin: 0 0 0 12px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .logo {
+        height: 60px;
+        margin: 16px;
+    }
+
+    .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .trigger:hover {
+        color: #1890ff;
+    }
+
+    // 头部header
+    .ant-layout-header {
+        width: 100%;
+        background: #fff;
+        padding: 0;
+        position: fixed;
+        z-index: 2;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+    }
+
+    // 内容区
+    .ant-layout-content {
+        margin: 88px 16px 24px 16px;
+        padding: 24px;
+        background: #fff;
+        min-height: 280px;
+    }
+}
