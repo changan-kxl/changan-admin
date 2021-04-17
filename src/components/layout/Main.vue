@@ -19,6 +19,7 @@
     </a-layout-sider>
     <a-layout>
       <Header v-model:collapsed="collapsed" />
+      <tags-nav></tags-nav>
       <Content />
     </a-layout>
   </a-layout>
@@ -27,6 +28,7 @@
 import SideMenu from "./side-menu";
 import Content from "./Content";
 import Header from "./Header";
+import TagsNav from "../tags-nav";
 import { ref } from "vue";
 
 export default {
@@ -34,6 +36,7 @@ export default {
     SideMenu,
     Content,
     Header,
+    TagsNav,
   },
   setup() {
     return {

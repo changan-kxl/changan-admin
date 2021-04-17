@@ -3,7 +3,10 @@
 // import {checkAuthorization} from '@/utils/request'
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { useRouter, useRoute } from "vue-router";
+import { useStore } from "vuex";
 
+const store = useStore();
 NProgress.configure({ showSpinner: false });
 
 /**

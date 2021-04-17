@@ -18,15 +18,24 @@ import Main from "@/components/layout/main.vue";
  */
 // 非 menu菜单
 const hideMenuItem = [
+  // {
+  //   path: "/",
+  //   name: "index",
+  //   meta: {
+  //     title: "首页",
+  //     notCache: true,
+  //   },
+  //   component: () => import("@/view/single-page/home.vue"),
+  // },
   {
     path: "/403",
     name: "403",
-    meta: { 
+    meta: {
       title: "403",
       notCache: true,
       icon: "AntDesignOutlined",
     },
-    component: () => import("@/view/exception/403.vue")
+    component: () => import("@/view/exception/403.vue"),
   },
   {
     path: "/500",
@@ -55,7 +64,7 @@ const hideMenuItem = [
 // 菜单栏路由
 const Menu = [
   {
-    path: "/home",
+    path: "/",
     name: "_home",
     component: Main,
     meta: {

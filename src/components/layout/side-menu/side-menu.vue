@@ -18,12 +18,10 @@
             :key="`${item.path}/${item.children[0].path}`"
             v-if="item.children"
           >
-            <router-link :to="`${item.path}/${item.children[0].path}`">
-              <component :is="$antIcons[item.children[0].meta.icon]" />
-              <span>
-                {{ item.children[0].meta.title }}
-              </span>
-            </router-link>
+            <component :is="$antIcons[item.children[0].meta.icon]" />
+            <span>
+              {{ item.children[0].meta.title }}
+            </span>
           </a-menu-item>
         </template>
       </template>
@@ -35,11 +33,13 @@ import SideMenuItem from "./side-menu-item";
 import routesList from "@/router/routes.js";
 import { computed, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { useStore } from "vuex";
 export default {
   components: {
     SideMenuItem,
   },
   setup() {
+    const store = useStore();
     const router = useRouter();
     const route = useRoute();
     const routes = computed(() => routesList);
@@ -53,10 +53,24 @@ export default {
 
     const methods = {
       clickSMItem(e) {
-        const { keyPath } = e;
+        const { keyPath, key } = e;
+        // 多级菜单跳转
         if (keyPath.length > 1) {
           const fullPath = keyPath.reverse().join("/");
           router.push({ path: fullPath }, () => {});
+          store.dispatch("tag/addNavItem", {
+            key,
+            path: fullPath,
+            meta: route.meta,
+          });
+        } else {
+          // 一级菜单跳转
+          router.push({ path: key }, () => {});
+          store.dispatch("tag/addNavItem", {
+            key,
+            path: key,
+            meta: route.meta,
+          });
         }
       },
     };
