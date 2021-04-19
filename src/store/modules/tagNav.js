@@ -5,8 +5,8 @@ const state = {
 };
 
 const closePage = (state, route) => {
-  const nextRoute = getNextRoute(state.tagNavList, route);
-  state.tagNavList = state.tagNavList.filter((item) => {
+  const nextRoute = getNextRoute(state.tagsList, route);
+  state.tagsList = state.tagsList.filter((item) => {
     return !routeEqual(item, route);
   });
   router.push(nextRoute);
@@ -20,8 +20,19 @@ const mutations = {
     state.tagsList.push(params);
   },
   DEL_DATA(state, params) {
-    const index = state.tagsList.findIndex((item) => item.key === params.targetKey);
+    const index = state.tagsList.findIndex(
+      (item) => item.key === params.targetKey
+    );
     state.tagsList.splice(index, 1);
+  },
+  setTagNavList(state, list) {
+    let tagList = [];
+    if (list) {
+      tagList = [...list];
+    } else {
+      // 取缓存
+    }
+    state.tagsList = tagList
   },
 };
 

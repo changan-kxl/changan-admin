@@ -64,22 +64,22 @@ const hideMenuItem = [
 // 菜单栏路由
 const Menu = [
   {
-    path: "/",
+    path: "",
     name: "_home",
     component: Main,
     meta: {
-      notCache: true,
+      notCache: false,
     },
     children: [
       {
         path: "home",
         name: "home",
         meta: {
+          keepAlive: true,
           title: "首页",
-          notCache: true,
           icon: "AntDesignOutlined",
         },
-        component: () => import("@/view/single-page/home.vue"),
+        component: () => import("@/view/join-page.vue"),
       },
     ],
   },

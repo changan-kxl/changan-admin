@@ -1,3 +1,3 @@
 <template>
-  <div>这是消息中心</div>
+  <a-input placeholder="Basic usage" />
 </template>

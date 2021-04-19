@@ -24,4 +24,5 @@ app.use(router);
 app.use(Antd);
 
 bootstrap({ router, message });
+
 app.mount("#app");

@@ -31,7 +31,7 @@
 <script>
 import SideMenuItem from "./side-menu-item";
 import routesList from "@/router/routes.js";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 export default {
@@ -50,7 +50,18 @@ export default {
       }
       return [route.path];
     });
-
+    watch(
+      () => route.path,
+      () => {
+        const { path, meta, name } = route;
+        store.dispatch("tagNav/addNavItem", {
+          name,
+          key: path,
+          path,
+          meta,
+        });
+      }
+    );
     const methods = {
       clickSMItem(e) {
         const { keyPath, key } = e;
@@ -58,19 +69,9 @@ export default {
         if (keyPath.length > 1) {
           const fullPath = keyPath.reverse().join("/");
           router.push({ path: fullPath }, () => {});
-          store.dispatch("tag/addNavItem", {
-            key,
-            path: fullPath,
-            meta: route.meta,
-          });
         } else {
           // 一级菜单跳转
           router.push({ path: key }, () => {});
-          store.dispatch("tag/addNavItem", {
-            key,
-            path: key,
-            meta: route.meta,
-          });
         }
       },
     };

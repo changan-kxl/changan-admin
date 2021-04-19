@@ -20,14 +20,14 @@
     <a-layout>
       <Header v-model:collapsed="collapsed" />
       <tags-nav></tags-nav>
-      <Content />
+      <content />
     </a-layout>
   </a-layout>
 </template>
 <script>
 import SideMenu from "./side-menu";
-import Content from "./Content";
-import Header from "./Header";
+import Content from "./content";
+import Header from "./header";
 import TagsNav from "../tags-nav";
 import { ref } from "vue";
 

@@ -1,8 +1,7 @@
 import { createStore } from "vuex";
-import tag from "./modules/tag";
+import tagNav from "./modules/tagNav";
 
 const state = {
-  a: 1,
 };
 
 const getters = {};
@@ -12,7 +11,7 @@ const actions = {};
 
 export default createStore({
   modules: {
-    tag,
+    tagNav,
   },
   state,
   getters,

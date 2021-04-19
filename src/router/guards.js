@@ -16,9 +16,6 @@ NProgress.configure({ showSpinner: false });
  * @param next
  */
 const progressStart = (to, from, next) => {
-  if (to.path === "/") {
-    next("/home");
-  }
   // start progress bar
   if (!NProgress.isStarted()) {
     NProgress.start();
