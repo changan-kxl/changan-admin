@@ -5,22 +5,14 @@
       <span>{{ parentItem.meta.title }}</span>
     </template>
     <template v-for="item in children">
-      <template v-if="item.children && item.children.length === 1">
+      <template v-if="!item.children">
         <a-menu-item :key="item.path">
           <component :is="$antIcons[item.meta.icon]" />
           <span>{{ item.meta.title }}</span>
         </a-menu-item>
       </template>
       <template v-else>
-        <side-menu-item
-          v-if="item.children"
-          :key="item.path"
-          :parent-item="item"
-        ></side-menu-item>
-        <a-menu-item :key="item.path" v-else>
-          <component :is="$antIcons[item.meta.icon]" />
-          <span>{{ item.meta.title }}</span>
-        </a-menu-item>
+        <side-menu-item :key="item.path" :parent-item="item"></side-menu-item>
       </template>
     </template>
   </a-sub-menu>

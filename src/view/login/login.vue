@@ -15,7 +15,11 @@
         @finish="handleFinish"
       >
         <a-form-item v-bind="validateInfos.user">
-          <a-input v-model:value="modelRef.user" placeholder="admin">
+          <a-input
+            v-model:value="modelRef.user"
+            placeholder="admin"
+            size="large"
+          >
             <template #prefix
               ><UserOutlined style="color: rgba(0, 0, 0, 0.25)"
             /></template>
@@ -26,6 +30,7 @@
             v-model:value="modelRef.password"
             type="password"
             placeholder="888888"
+            size="large"
           >
             <template #prefix
               ><LockOutlined style="color: rgba(0, 0, 0, 0.25)"

@@ -7,22 +7,21 @@
     @click="clickSMItem"
   >
     <template v-for="item in routes">
-      <template v-if="!item.meta.hideInMenu">
-        <!-- submenu -->
+      <template v-if="!(item.meta && item.meta.hideInMenu)">
         <template v-if="item.children && item.children.length > 1">
-          <side-menu-item :parent-item="item" :key="item.path"></side-menu-item>
-        </template>
-        <!-- menu-item -->
-        <template v-else>
-          <a-menu-item
-            :key="`${item.path}/${item.children[0].path}`"
-            v-if="item.children"
-          >
-            <component :is="$antIcons[item.children[0].meta.icon]" />
-            <span>
-              {{ item.children[0].meta.title }}
-            </span>
-          </a-menu-item>
+          <template v-for="c in item.children" :key="c.path">
+            <side-menu-item
+              :parent-item="c"
+              :key="c.path"
+              v-if="c.children"
+            ></side-menu-item>
+            <a-menu-item :key="`${c.path}`" v-else>
+              <component :is="$antIcons[c.meta.icon]" />
+              <span>
+                {{ c.meta.title }}
+              </span>
+            </a-menu-item>
+          </template>
         </template>
       </template>
     </template>
@@ -50,6 +49,7 @@ export default {
       }
       return [route.path];
     });
+
     watch(
       () => route.path,
       () => {
@@ -62,16 +62,18 @@ export default {
         });
       }
     );
+
     const methods = {
       clickSMItem(e) {
         const { keyPath, key } = e;
         // 多级菜单跳转
         if (keyPath.length > 1) {
-          const fullPath = keyPath.reverse().join("/");
-          router.push({ path: fullPath }, () => {});
+          const reversePath = keyPath.reverse();
+          const fullPath = reversePath.join("/");
+          router.push({ path: `/${fullPath}` });
         } else {
           // 一级菜单跳转
-          router.push({ path: key }, () => {});
+          router.push({ path: `/${key}` });
         }
       },
     };
