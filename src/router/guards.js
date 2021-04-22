@@ -3,7 +3,6 @@
 // import {checkAuthorization} from '@/utils/request'
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -23,22 +22,36 @@ const progressStart = (to, from, next) => {
   next();
 };
 
-// /**
-//  * 登录守卫
-//  * @param to
-//  * @param form
-//  * @param next
-//  * @param options
-//  */
-// const loginGuard = (to, from, next, options) => {
-//   const {message} = options
-//   if (!loginIgnore.includes(to) && !checkAuthorization()) {
-//     message.warning('登录已失效，请重新登录')
-//     next({path: '/login'})
-//   } else {
-//     next()
-//   }
-// }
+/**
+ * 登录守卫
+ * @param to
+ * @param form
+ * @param next
+ * @param options
+ */
+const loginGuard = (to, from, next, options) => {
+  const { message } = options;
+  const accesstoken = localStorage.getItem("accesstoken");
+  const loginIgnore = {
+    names: ["404", "403"], //根据路由名称匹配
+    paths: ["/login"], //根据路由fullPath匹配
+    /**
+     * 判断路由是否包含在该配置中
+     * @param route vue-router 的 route 对象
+     * @returns {boolean}
+     */
+    includes(route) {
+      return this.names.includes(route.name) || this.paths.includes(route.path);
+    },
+  };
+
+  if (!loginIgnore.includes(to) && !accesstoken) {
+    message.warning("登录已失效，请重新登录");
+    next({ path: "/login" });
+  } else {
+    next();
+  }
+};
 
 // /**
 //  * 权限守卫
@@ -103,6 +116,6 @@ const progressDone = () => {
 };
 
 export default {
-  beforeEach: [progressStart],
+  beforeEach: [progressStart, loginGuard],
   afterEach: [progressDone],
 };

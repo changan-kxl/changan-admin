@@ -16,7 +16,17 @@
   </a-layout-content>
 </template>
 <script>
+import PageToggleTransition from "../transition/PageToggleTransition";
+
 export default {
+  components: {
+    PageToggleTransition,
+  },
+  data() {
+    return {
+      animate: { disabled: false, name: "lightSpeed", direction: "left" },
+    };
+  },
   computed: {
     tagNavList() {
       return this.$store.state.tagNav.tagsList;
@@ -46,7 +56,7 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .ant-breadcrumb {
   margin-bottom: 20px;
 }

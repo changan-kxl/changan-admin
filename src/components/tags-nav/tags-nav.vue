@@ -1,21 +1,53 @@
 <template>
   <div class="tabs-head">
-    <!-- <contextmenu :itemList="menuItemList" :visible="menuVisible" /> -->
     <a-tabs
       hide-add
-      class="tabs-container"
       v-model:activeKey="activeKey"
       type="editable-card"
       @edit="onEdit"
       @tabClick="onTabClick"
     >
-      <a-tab-pane
-        v-for="pane in tagsNavList"
-        :key="pane.path"
-        :tab="pane.meta.title"
-        closable="false"
-      >
-      </a-tab-pane>
+      <template v-for="(pageItem, index) in tagsNavList" :key="pageItem.path">
+        <a-tab-pane>
+          <template #tab>
+            <!-- 右键操作栏 -->
+            <a-dropdown :trigger="['contextmenu']">
+              <div style="display: inline-block">
+                {{ pageItem.meta.title }}
+              </div>
+              <template #overlay>
+                <a-menu style="user-select: none">
+                  <a-menu-item
+                    key="close-left"
+                    :disabled="index === 0"
+                    @click="closeLeft(pageItem, index)"
+                  >
+                    <vertical-right-outlined />
+                    关闭左侧
+                  </a-menu-item>
+                  <a-menu-item
+                    key="close-right"
+                    :disabled="index === tagsNavList.length - 1"
+                    @click="closeRight(pageItem, index)"
+                  >
+                    <vertical-left-outlined />
+                    关闭右侧
+                  </a-menu-item>
+                  <a-menu-divider />
+                  <a-menu-item
+                    key="close-other"
+                    :disabled="tagsNavList.length === 1"
+                    @click="closeOther(pageItem)"
+                  >
+                    <column-width-outlined />
+                    关闭其他
+                  </a-menu-item>
+                </a-menu>
+              </template>
+            </a-dropdown>
+          </template>
+        </a-tab-pane>
+      </template>
     </a-tabs>
   </div>
 </template>
@@ -23,24 +55,14 @@
 import { ref, computed, watch, onMounted, reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter, useRoute } from "vue-router";
-import Contextmenu from "./Contextmenu.vue";
 
 export default {
-  components: {
-    Contextmenu,
-  },
+  created() {},
   setup() {
     const store = useStore();
     const route = useRoute();
     const router = useRouter();
     const tagsNavList = computed(() => store.state.tagNav.tagsList);
-    const menuItemList = computed(() => [
-      { key: "1", icon: "vertical-right", text: 111 },
-      { key: "2", icon: "vertical-left", text: 222 },
-      { key: "3", icon: "close", text: 333 },
-      { key: "4", icon: "sync", text: 444 },
-    ]);
-    let menuVisible = ref(false);
     let activeKey = ref("/home");
     function setTagNavList() {
       store.commit("tagNav/setTagNavList", [
@@ -92,26 +114,27 @@ export default {
     };
 
     const onTabClick = (targetKey) => {
-      menuVisible.value = true;
       const { path } = route;
       if (path === targetKey) return;
       router.push(targetKey);
     };
 
-    const handleMenuClick = (e) => {
-      switch (e.key) {
-        // 关闭当前页
-        case "close-curr":
-          break;
-        // 关闭其他标签
-        case "close-other":
-          break;
-        // 关闭所有标签
-        case "close-all":
-          break;
-        default:
-          break;
-      }
+    const closeLeft = (item, index) => {
+      store.commit("tagNav/closeLeftTabs", item);
+      activeKey.value = item.key;
+      router.replace(item.key);
+    };
+
+    const closeRight = (item, index) => {
+      store.commit("tagNav/closeRightTabs", item);
+      activeKey.value = item.key;
+      router.replace(item.key);
+    };
+
+    const closeOther = (item) => {
+      store.commit("tagNav/closeAnthorTabs", item);
+      activeKey.value = item.key;
+      router.replace(item.key);
     };
 
     return {
@@ -119,16 +142,13 @@ export default {
       onEdit,
       tagsNavList,
       onTabClick,
-      handleMenuClick,
-      menuVisible,
-      menuItemList,
+      closeLeft,
+      closeRight,
+      closeOther,
     };
   },
 };
 </script>
 <style lang="less">
 @import "./index.less";
-.tabs-container {
-  position: relative;
-}
 </style>

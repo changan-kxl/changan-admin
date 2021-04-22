@@ -32,7 +32,21 @@ const mutations = {
     } else {
       // 取缓存
     }
-    state.tagsList = tagList
+    state.tagsList = tagList;
+  },
+  // 关闭左侧
+  closeLeftTabs(state, route) {
+    const index = state.tagsList.findIndex((item) => item.key === route.key);
+    state.tagsList.splice(0, index);
+  },
+  // 关闭右侧
+  closeRightTabs(state, route) {
+    const index = state.tagsList.findIndex((item) => item.key === route.key);
+    state.tagsList.splice(index + 1);
+  },
+  // 关闭其他
+  closeAnthorTabs(state, route) {
+    state.tagsList = state.tagsList.filter((item) => item.key === route.key);
   },
 };
 

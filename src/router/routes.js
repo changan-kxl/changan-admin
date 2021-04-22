@@ -18,15 +18,14 @@ import Main from "@/components/layout/main.vue";
  */
 // 非 menu菜单
 const hideMenuItem = [
-  // {
-  //   path: "/",
-  //   name: "index",
-  //   meta: {
-  //     title: "首页",
-  //     notCache: true,
-  //   },
-  //   component: () => import("@/view/single-page/home.vue"),
-  // },
+  {
+    path: "/login",
+    name: "login",
+    meta: {
+      title: "登录",
+    },
+    component: () => import("@/view/login"),
+  },
   {
     path: "/403",
     name: "403",
