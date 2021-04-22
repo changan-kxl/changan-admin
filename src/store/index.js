@@ -1,21 +1,21 @@
-import { createStore } from "vuex";
-import tagNav from "./modules/tagNav";
-import login from "./modules/login";
+import { createStore } from 'vuex'
+import tagNav from './modules/tagNav'
+import login from './modules/login'
 
-const state = {};
+const state = {}
 
-const getters = {};
-const mutations = {};
+const getters = {}
+const mutations = {}
 
-const actions = {};
+const actions = {}
 
 export default createStore({
   modules: {
     tagNav,
-    login,
+    login
   },
   state,
   getters,
   mutations,
-  actions,
-});
+  actions
+})

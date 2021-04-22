@@ -6,9 +6,8 @@
 import ExceptionPage from '@/components/exception/ExceptionPage.vue'
 export default {
   name: 'Exp404',
-  components: {ExceptionPage},
+  components: { ExceptionPage }
 }
 </script>
 
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>

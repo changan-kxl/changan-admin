@@ -19,21 +19,21 @@
 </template>
 <script>
 export default {
-  name: "SideMenuItem",
+  name: 'SideMenuItem',
   props: {
     parentItem: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     menuData: {
       type: Object,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   computed: {
     children() {
-      return this.parentItem.children;
-    },
-  },
-};
+      return this.parentItem.children
+    }
+  }
+}
 </script>

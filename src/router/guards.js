@@ -1,12 +1,12 @@
 // import {hasAuthority} from '@/utils/authority-utils'
 // import {loginIgnore} from '@/router/index'
 // import {checkAuthorization} from '@/utils/request'
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
-import { useStore } from "vuex";
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import { useStore } from 'vuex'
 
-const store = useStore();
-NProgress.configure({ showSpinner: false });
+const store = useStore()
+NProgress.configure({ showSpinner: false })
 
 /**
  * 进度条开始
@@ -17,10 +17,10 @@ NProgress.configure({ showSpinner: false });
 const progressStart = (to, from, next) => {
   // start progress bar
   if (!NProgress.isStarted()) {
-    NProgress.start();
+    NProgress.start()
   }
-  next();
-};
+  next()
+}
 
 /**
  * 登录守卫
@@ -30,28 +30,28 @@ const progressStart = (to, from, next) => {
  * @param options
  */
 const loginGuard = (to, from, next, options) => {
-  const { message } = options;
-  const accesstoken = localStorage.getItem("accesstoken");
+  const { message } = options
+  const accesstoken = localStorage.getItem('accesstoken')
   const loginIgnore = {
-    names: ["404", "403"], //根据路由名称匹配
-    paths: ["/login"], //根据路由fullPath匹配
+    names: ['404', '403'], //根据路由名称匹配
+    paths: ['/login'], //根据路由fullPath匹配
     /**
      * 判断路由是否包含在该配置中
      * @param route vue-router 的 route 对象
      * @returns {boolean}
      */
     includes(route) {
-      return this.names.includes(route.name) || this.paths.includes(route.path);
-    },
-  };
+      return this.names.includes(route.name) || this.paths.includes(route.path)
+    }
+  }
 
   if (!loginIgnore.includes(to) && !accesstoken) {
-    message.warning("登录已失效，请重新登录");
-    next({ path: "/login" });
+    message.warning('登录已失效，请重新登录')
+    next({ path: '/login' })
   } else {
-    next();
+    next()
   }
-};
+}
 
 // /**
 //  * 权限守卫
@@ -112,10 +112,10 @@ const loginGuard = (to, from, next, options) => {
  */
 const progressDone = () => {
   // finish progress bar
-  NProgress.done();
-};
+  NProgress.done()
+}
 
 export default {
   beforeEach: [progressStart, loginGuard],
-  afterEach: [progressDone],
-};
+  afterEach: [progressDone]
+}

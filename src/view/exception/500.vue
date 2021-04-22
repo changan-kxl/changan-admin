@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import ExceptionPage from "@/components/exception/ExceptionPage.vue";
+import ExceptionPage from '@/components/exception/ExceptionPage.vue'
 export default {
-  name: "Exp500",
-  components: { ExceptionPage },
-};
+  name: 'Exp500',
+  components: { ExceptionPage }
+}
 </script>
 
 <style scoped lang="less"></style>

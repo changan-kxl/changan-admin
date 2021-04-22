@@ -8,10 +8,10 @@
 export default {
   methods: {
     handleClick() {
-      this.$router.push(`/detail/130/detail`);
-    },
-  },
-};
+      this.$router.push(`/detail/130/detail`)
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 .bg {

@@ -3,17 +3,15 @@
     <div class="links">
       <a target="_blank" :href="linkList"> <GithubOutlined /></a>
     </div>
-    <div class="copyright">
-      Copyright<CopyrightCircleOutlined />{{ copyright }}
-    </div>
+    <div class="copyright">Copyright<CopyrightCircleOutlined />{{ copyright }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "PageFooter",
-  props: ["linkList", "copyright"],
-};
+  name: 'PageFooter',
+  props: ['linkList', 'copyright']
+}
 </script>
 
 <style lang="less" scoped>

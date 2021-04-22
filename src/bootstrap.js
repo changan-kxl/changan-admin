@@ -1,5 +1,5 @@
-import { loadGuards } from "@/utils/routerUtil";
-import guards from "@/router/guards";
+import { loadGuards } from '@/utils/routerUtil'
+import guards from '@/router/guards'
 
 /**
  * 启动引导方法
@@ -9,7 +9,7 @@ import guards from "@/router/guards";
  */
 function bootstrap({ router, message }) {
   // 加载路由守卫
-  loadGuards(guards, { router, message });
+  loadGuards(guards, { router, message })
 }
 
-export default bootstrap;
+export default bootstrap

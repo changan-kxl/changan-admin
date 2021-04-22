@@ -1,4 +1,4 @@
-import Main from "@/components/layout/main.vue";
+import Main from '@/components/layout/main.vue'
 
 /**
  * meta除了原生参数外可配置的参数:
@@ -17,175 +17,171 @@ import Main from "@/components/layout/main.vue";
 // 非 menu菜单
 const hideMenuItem = [
   {
-    path: "/login",
-    name: "login",
+    path: '/login',
+    name: 'login',
     meta: {
-      title: "登录",
+      title: '登录'
     },
-    component: () => import("@/view/login"),
+    component: () => import('@/view/login')
   },
   {
-    path: "/403",
-    name: "403",
+    path: '/403',
+    name: '403',
     meta: {
-      title: "403",
+      title: '403',
       notCache: true,
-      icon: "AntDesignOutlined",
+      icon: 'AntDesignOutlined'
     },
-    component: () => import("@/view/exception/403.vue"),
+    component: () => import('@/view/exception/403.vue')
   },
   {
-    path: "/500",
-    name: "500",
+    path: '/500',
+    name: '500',
     meta: {
       hideInMenu: true,
-      title: "500",
+      title: '500',
       notCache: true,
-      icon: "AntDesignOutlined",
+      icon: 'AntDesignOutlined'
     },
-    component: () => import("@/view/exception/500.vue"),
+    component: () => import('@/view/exception/500.vue')
   },
   {
-    path: "/:pathMatch(.*)*",
-    name: "error_404",
+    path: '/:pathMatch(.*)*',
+    name: 'error_404',
     meta: {
       hideInMenu: true,
-      title: "404",
+      title: '404',
       notCache: true,
-      icon: "AntDesignOutlined",
+      icon: 'AntDesignOutlined'
     },
-    component: () => import("@/view/exception/404.vue"),
+    component: () => import('@/view/exception/404.vue')
   },
   {
-    path: "/detail/:id",
+    path: '/detail/:id',
     component: Main,
     meta: {
       notCache: false,
-      hideInMenu: true,
+      hideInMenu: true
     },
     children: [
       {
-        path: "detail",
-        name: "detail",
+        path: 'detail',
+        name: 'detail',
         meta: {
-          title: "详情",
-          icon: "AntDesignOutlined",
+          title: '详情',
+          icon: 'AntDesignOutlined'
         },
-        component: () => import("@/view/join-page.vue"),
-      },
-    ],
-  },
-];
+        component: () => import('@/view/join-page.vue')
+      }
+    ]
+  }
+]
 
 // 菜单栏路由
 const Menu = [
   {
-    path: "/",
+    path: '/',
     component: Main,
     children: [
       {
-        path: "home",
-        name: "home",
+        path: 'home',
+        name: 'home',
         meta: {
-          title: "首页",
-          icon: "AntDesignOutlined",
+          title: '首页',
+          icon: 'AntDesignOutlined'
         },
-        component: () => import("@/view/join-page.vue"),
+        component: () => import('@/view/join-page.vue')
       },
       {
-        path: "multilevel",
-        name: "multilevel",
+        path: 'multilevel',
+        name: 'multilevel',
         meta: {
-          icon: "AntDesignOutlined",
-          title: "多级菜单",
+          icon: 'AntDesignOutlined',
+          title: '多级菜单'
         },
-        component: () => import("@/view/join-page.vue"),
+        component: () => import('@/view/join-page.vue'),
         children: [
           {
-            path: "level_2_1",
-            name: "level_2_1",
+            path: 'level_2_1',
+            name: 'level_2_1',
             meta: {
-              mode: "multiple",
-              icon: "AntDesignOutlined",
-              title: "二级-1",
+              mode: 'multiple',
+              icon: 'AntDesignOutlined',
+              title: '二级-1'
             },
-            component: () => import("@/view/multilevel/level-2-1.vue"),
+            component: () => import('@/view/multilevel/level-2-1.vue')
           },
           {
-            path: "level_2_2",
-            name: "level_2_2",
+            path: 'level_2_2',
+            name: 'level_2_2',
             meta: {
-              mode: "multiple",
-              access: ["super_admin"],
-              icon: "AntDesignOutlined",
+              mode: 'multiple',
+              access: ['super_admin'],
+              icon: 'AntDesignOutlined',
               showAlways: true,
-              title: "二级-2",
+              title: '二级-2'
             },
-            component: () => import("@/view/multilevel/level-2-3.vue"),
+            component: () => import('@/view/multilevel/level-2-3.vue'),
             children: [
               {
-                path: "level_2_2_1",
-                name: "level_2_2_1",
+                path: 'level_2_2_1',
+                name: 'level_2_2_1',
                 meta: {
-                  mode: "multiple",
-                  icon: "AntDesignOutlined",
-                  title: "三级",
+                  mode: 'multiple',
+                  icon: 'AntDesignOutlined',
+                  title: '三级'
                 },
-                component: () => import("@/view/multilevel/level-2-3.vue"),
+                component: () => import('@/view/multilevel/level-2-3.vue'),
                 children: [
                   {
-                    path: "level_2_2_1_1",
-                    name: "level_2_2_1_1",
+                    path: 'level_2_2_1_1',
+                    name: 'level_2_2_1_1',
                     meta: {
-                      mode: "multiple",
-                      icon: "AntDesignOutlined",
-                      title: "三级",
+                      mode: 'multiple',
+                      icon: 'AntDesignOutlined',
+                      title: '三级'
                     },
-                    component: () =>
-                      import("@/view/multilevel/level-2-2/level-2-2-1.vue"),
+                    component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
                   },
                   {
-                    path: "level_2_2_1_2",
-                    name: "level_2_2_1_2",
+                    path: 'level_2_2_1_2',
+                    name: 'level_2_2_1_2',
                     meta: {
-                      mode: "multiple",
-                      icon: "AntDesignOutlined",
-                      title: "三级",
+                      mode: 'multiple',
+                      icon: 'AntDesignOutlined',
+                      title: '三级'
                     },
-                    component: () =>
-                      import("@/view/multilevel/level-2-2/level-2-2-2.vue"),
-                  },
+                    component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
+                  }
                 ],
-                component: () =>
-                  import("@/view/multilevel/level-2-2/level-2-2-1.vue"),
+                component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
               },
               {
-                path: "level_2_2_2",
-                name: "level_2_2_2",
+                path: 'level_2_2_2',
+                name: 'level_2_2_2',
                 meta: {
-                  mode: "multiple",
-                  icon: "AntDesignOutlined",
-                  title: "三级",
+                  mode: 'multiple',
+                  icon: 'AntDesignOutlined',
+                  title: '三级'
                 },
-                component: () =>
-                  import("@/view/multilevel/level-2-2/level-2-2-2.vue"),
-              },
-            ],
+                component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
+              }
+            ]
           },
           {
-            path: "level_2_3",
-            name: "level_2_3",
+            path: 'level_2_3',
+            name: 'level_2_3',
             meta: {
-              mode: "multiple",
-              icon: "AntDesignOutlined",
-              title: "二级-3",
+              mode: 'multiple',
+              icon: 'AntDesignOutlined',
+              title: '二级-3'
             },
-            component: () => import("@/view/multilevel/level-2-3.vue"),
-          },
-        ],
-      },
-    ],
-  },
-];
+            component: () => import('@/view/multilevel/level-2-3.vue')
+          }
+        ]
+      }
+    ]
+  }
+]
 
-export default hideMenuItem.concat(Menu);
+export default hideMenuItem.concat(Menu)

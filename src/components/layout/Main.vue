@@ -25,26 +25,26 @@
   </a-layout>
 </template>
 <script>
-import SideMenu from "./side-menu";
-import Content from "./content";
-import Header from "./header";
-import TagsNav from "../tags-nav";
-import { ref } from "vue";
+import SideMenu from './side-menu'
+import Content from './content'
+import Header from './header'
+import TagsNav from '../tags-nav'
+import { ref } from 'vue'
 
 export default {
   components: {
     SideMenu,
     Content,
     Header,
-    TagsNav,
+    TagsNav
   },
   setup() {
     return {
-      collapsed: ref(false),
-    };
-  },
-};
+      collapsed: ref(false)
+    }
+  }
+}
 </script>
 <style lang="less">
-@import "./index.less";
+@import './index.less';
 </style>

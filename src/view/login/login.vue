@@ -8,21 +8,10 @@
       <div class="desc"></div>
     </div>
     <div class="login">
-      <a-form
-        v-bind="formItemLayout"
-        layout="horizontal"
-        :model="modelRef"
-        @finish="handleFinish"
-      >
+      <a-form v-bind="formItemLayout" layout="horizontal" :model="modelRef" @finish="handleFinish">
         <a-form-item v-bind="validateInfos.user">
-          <a-input
-            v-model:value="modelRef.user"
-            placeholder="admin"
-            size="large"
-          >
-            <template #prefix
-              ><UserOutlined style="color: rgba(0, 0, 0, 0.25)"
-            /></template>
+          <a-input v-model:value="modelRef.user" placeholder="admin" size="large">
+            <template #prefix><UserOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
           </a-input>
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
@@ -32,9 +21,7 @@
             placeholder="888888"
             size="large"
           >
-            <template #prefix
-              ><LockOutlined style="color: rgba(0, 0, 0, 0.25)"
-            /></template>
+            <template #prefix><LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
           </a-input>
         </a-form-item>
         <div>
@@ -57,68 +44,68 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw } from "vue";
-import CommonLayout from "@/components/layout/CommonLayout.vue";
-import { useForm } from "@ant-design-vue/use";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-import { message } from "ant-design-vue";
+import { ref, reactive, toRaw } from 'vue'
+import CommonLayout from '@/components/layout/CommonLayout.vue'
+import { useForm } from '@ant-design-vue/use'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { message } from 'ant-design-vue'
 
 export default {
   components: {
-    CommonLayout,
+    CommonLayout
   },
   setup() {
-    const store = useStore();
-    const router = useRouter();
-    const logging = ref(false);
+    const store = useStore()
+    const router = useRouter()
+    const logging = ref(false)
     const modelRef = reactive({
-      user: "",
-      password: undefined,
-    });
+      user: '',
+      password: undefined
+    })
     const rulesRef = reactive({
       user: [
         {
           required: true,
-          message: "Please input user name",
-        },
+          message: 'Please input user name'
+        }
       ],
       password: [
         {
           required: true,
-          message: "Please input password",
-        },
-      ],
-    });
-    const { validate, validateInfos } = useForm(modelRef, rulesRef);
-    const systemName = ref("Vue Antd Admin");
+          message: 'Please input password'
+        }
+      ]
+    })
+    const { validate, validateInfos } = useForm(modelRef, rulesRef)
+    const systemName = ref('Vue Antd Admin')
     const formItemLayout = reactive({
       labelCol: { span: 0 },
-      wrapperCol: { span: 24 },
-    });
+      wrapperCol: { span: 24 }
+    })
 
     async function login(values) {
-      const res = await store.dispatch("login/login", values);
-      logging.value = false;
+      const res = await store.dispatch('login/login', values)
+      logging.value = false
       if (res.result === 1) {
-        message.success("登录成功");
-        router.push("/home");
+        message.success('登录成功')
+        router.push('/home')
       } else {
-        message.warning("用户名或密码错误");
-        return;
+        message.warning('用户名或密码错误')
+        return
       }
     }
     async function handleFinish() {
       validate()
         .then(() => {
-          logging.value = true;
-          const formValues = toRaw(modelRef);
-          login(formValues);
+          logging.value = true
+          const formValues = toRaw(modelRef)
+          login(formValues)
         })
         .catch((err) => {
-          logging.value = false;
-          console.log("error", err);
-        });
+          logging.value = false
+          console.log('error', err)
+        })
     }
 
     return {
@@ -127,10 +114,10 @@ export default {
       handleFinish,
       validateInfos,
       formItemLayout,
-      logging,
-    };
-  },
-};
+      logging
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -151,8 +138,7 @@ export default {
       .title {
         font-size: 33px;
         color: #000;
-        font-family: "Myriad Pro", "Helvetica Neue", Arial, Helvetica,
-          sans-serif;
+        font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
         font-weight: 600;
         position: relative;
         top: 2px;

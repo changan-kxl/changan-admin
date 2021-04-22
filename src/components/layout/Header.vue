@@ -16,20 +16,20 @@
 </template>
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   props: {
     collapsed: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   setup(props, context) {
     function handleCollapsed(value) {
-      context.emit("update:collapsed", !value);
+      context.emit('update:collapsed', !value)
     }
     return {
-      handleCollapsed,
-    };
-  },
-};
+      handleCollapsed
+    }
+  }
+}
 </script>

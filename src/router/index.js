@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
-import routes from "./routes";
-const routerHistory = createWebHistory(); // 引入路由方式
+import { createRouter, createWebHistory } from 'vue-router'
+import routes from './routes'
+const routerHistory = createWebHistory() // 引入路由方式
 
 const router = createRouter({
   history: routerHistory,
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

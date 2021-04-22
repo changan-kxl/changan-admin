@@ -3,7 +3,7 @@
     id="rightMenuDom"
     class="right-menu"
     :style="{
-      display: rightMenuStatus,
+      display: rightMenuStatus
     }"
   >
     <ul>
@@ -17,23 +17,23 @@
 export default {
   data() {
     return {
-      rightMenuStatus: "none",
-    };
+      rightMenuStatus: 'none'
+    }
   },
   mounted() {
-    document.addEventListener("contextmenu", (event) => {
-      event.preventDefault();
-      this.rightMenuStatus = "block";
-    });
-    document.addEventListener("mousedown", (event) => {
-      event.preventDefault();
+    document.addEventListener('contextmenu', (event) => {
+      event.preventDefault()
+      this.rightMenuStatus = 'block'
+    })
+    document.addEventListener('mousedown', (event) => {
+      event.preventDefault()
       if (event.button == 1) {
-        console.log("右击事件");
+        console.log('右击事件')
       }
-      this.rightMenuStatus = "none";
-    });
-  },
-};
+      this.rightMenuStatus = 'none'
+    })
+  }
+}
 </script>
 <style lang="less">
 .right-menu {

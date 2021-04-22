@@ -16,20 +16,20 @@
   </a-layout-content>
 </template>
 <script>
-import PageToggleTransition from "../transition/PageToggleTransition";
+import PageToggleTransition from '../transition/PageToggleTransition'
 
 export default {
   components: {
-    PageToggleTransition,
+    PageToggleTransition
   },
   data() {
     return {
-      animate: { disabled: false, name: "lightSpeed", direction: "left" },
-    };
+      animate: { disabled: false, name: 'lightSpeed', direction: 'left' }
+    }
   },
   computed: {
     tagNavList() {
-      return this.$store.state.tagNav.tagsList;
+      return this.$store.state.tagNav.tagsList
     },
     cacheList() {
       const list = [
@@ -37,9 +37,9 @@ export default {
           ? this.tagNavList
               .filter((item) => !(item.meta && item.meta.notCache))
               .map((item) => item.name)
-          : []),
-      ];
-      return list;
+          : [])
+      ]
+      return list
     },
     breadcrumbList() {
       const list =
@@ -48,13 +48,13 @@ export default {
           return {
             name: item.name,
             path: item.path,
-            title: item.meta.title,
-          };
-        });
-      return list;
-    },
-  },
-};
+            title: item.meta.title
+          }
+        })
+      return list
+    }
+  }
+}
 </script>
 <style lang="less">
 .ant-breadcrumb {
