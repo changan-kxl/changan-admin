@@ -23,6 +23,7 @@ app.use(store)
 app.use(router)
 app.use(Antd)
 
-bootstrap({ router, message })
+// 系统启动初始化加载
+bootstrap({ router, message, store, app })
 
 app.mount('#app')

@@ -1,13 +1,13 @@
 <template>
   <a-layout-content>
     <!-- 面包屑 -->
-    <a-breadcrumb separator="">
+    <!-- <a-breadcrumb separator="">
       <a-breadcrumb-item>首页</a-breadcrumb-item>
       <template v-for="item in breadcrumbList" :key="item.name">
         <a-breadcrumb-separator v-if="item.title">/</a-breadcrumb-separator>
         <a-breadcrumb-item>{{ item.title }}</a-breadcrumb-item>
       </template>
-    </a-breadcrumb>
+    </a-breadcrumb> -->
     <router-view v-slot="{ Component }">
       <keep-alive :include="cacheList">
         <component :is="Component" />

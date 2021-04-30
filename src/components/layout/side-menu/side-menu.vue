@@ -3,7 +3,7 @@
   <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" @click="clickSMItem">
     <template v-for="item in routes">
       <template v-if="!(item.meta && item.meta.hideInMenu)">
-        <template v-if="item.children && item.children.length > 1">
+        <template v-if="item.children && item.children.length > 0">
           <template v-for="c in item.children" :key="c.path">
             <side-menu-item :parent-item="c" :key="c.path" v-if="c.children"></side-menu-item>
             <a-menu-item :key="`${c.path}`" v-else>
@@ -20,7 +20,6 @@
 </template>
 <script>
 import SideMenuItem from './side-menu-item'
-import routesList from '@/router/routes.js'
 import { computed, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
@@ -32,7 +31,7 @@ export default {
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
-    const routes = computed(() => routesList)
+    const routes = computed(() => store.getters["app/addRouters"])
     const openKeys = ref([])
     let selectedKeys = computed(() => {
       if (route.meta.mode) {
@@ -57,6 +56,7 @@ export default {
     const methods = {
       clickSMItem(e) {
         const { keyPath, key } = e
+        console.log(e);
         // 多级菜单跳转
         if (keyPath.length > 1) {
           const reversePath = keyPath.reverse()

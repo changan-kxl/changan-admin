@@ -16,8 +16,7 @@ export default {
 
 <style lang="less" scoped>
 .footer {
-  padding: 48px 16px 24px;
-  /*margin: 48px 0 24px;*/
+  padding: 0px 16px 24px;
   text-align: center;
   .copyright {
     color: rgba(0, 0, 0, 0.45);

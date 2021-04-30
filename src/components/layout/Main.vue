@@ -21,6 +21,12 @@
       <Header v-model:collapsed="collapsed" />
       <tags-nav></tags-nav>
       <content />
+      <a-layout-footer>
+        <page-footer
+        link-list="https://github.com/changan-kxl/changanAdmin" 
+        copyright="2021 常安出品"
+        />
+      </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
@@ -29,6 +35,7 @@ import SideMenu from './side-menu'
 import Content from './content'
 import Header from './header'
 import TagsNav from '../tags-nav'
+import PageFooter  from './footer/PageFooter';
 import { ref } from 'vue'
 
 export default {
@@ -36,7 +43,8 @@ export default {
     SideMenu,
     Content,
     Header,
-    TagsNav
+    TagsNav,
+    PageFooter,
   },
   setup() {
     return {

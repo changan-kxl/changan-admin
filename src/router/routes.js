@@ -88,77 +88,68 @@ const Menu = [
         name: 'home',
         meta: {
           title: '首页',
-          icon: 'AntDesignOutlined'
+          icon: 'AntDesignOutlined',
         },
         component: () => import('@/view/join-page.vue')
       },
+    ]
+  },
+  {
+    path: '/',
+    component: Main,
+    children: [
       {
-        path: 'multilevel',
-        name: 'multilevel',
+        path: 'doc',
+        name: 'doc',
         meta: {
+          title: '文档',
           icon: 'AntDesignOutlined',
-          title: '多级菜单'
+          url: "https://iczer.gitee.io/vue-antd-admin/#/login"
+          // role: ["admin"]
         },
-        component: () => import('@/view/join-page.vue'),
+        component: () => import('@/view/join-page.vue')
+      },
+    ]
+  },
+  {
+    path: '/',
+    component: Main,
+    children: [
+      {
+        path: 'level_2_2',
+        name: 'level_2_2',
+        meta: {
+          mode: 'multiple',
+          access: ['super_admin'],
+          icon: 'AntDesignOutlined',
+          showAlways: true,
+          title: '二级-2',
+        },
+        component: () => import('@/view/multilevel/level-2-3.vue'),
         children: [
           {
-            path: 'level_2_1',
-            name: 'level_2_1',
+            path: 'level_2_2_1',
+            name: 'level_2_2_1',
             meta: {
               mode: 'multiple',
               icon: 'AntDesignOutlined',
-              title: '二级-1'
-            },
-            component: () => import('@/view/multilevel/level-2-1.vue')
-          },
-          {
-            path: 'level_2_2',
-            name: 'level_2_2',
-            meta: {
-              mode: 'multiple',
-              access: ['super_admin'],
-              icon: 'AntDesignOutlined',
-              showAlways: true,
-              title: '二级-2'
+              title: '三级',
             },
             component: () => import('@/view/multilevel/level-2-3.vue'),
             children: [
               {
-                path: 'level_2_2_1',
-                name: 'level_2_2_1',
+                path: 'level_2_2_1_1',
+                name: 'level_2_2_1_1',
                 meta: {
                   mode: 'multiple',
                   icon: 'AntDesignOutlined',
                   title: '三级'
                 },
-                component: () => import('@/view/multilevel/level-2-3.vue'),
-                children: [
-                  {
-                    path: 'level_2_2_1_1',
-                    name: 'level_2_2_1_1',
-                    meta: {
-                      mode: 'multiple',
-                      icon: 'AntDesignOutlined',
-                      title: '三级'
-                    },
-                    component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
-                  },
-                  {
-                    path: 'level_2_2_1_2',
-                    name: 'level_2_2_1_2',
-                    meta: {
-                      mode: 'multiple',
-                      icon: 'AntDesignOutlined',
-                      title: '三级'
-                    },
-                    component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
-                  }
-                ],
                 component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
               },
               {
-                path: 'level_2_2_2',
-                name: 'level_2_2_2',
+                path: 'level_2_2_1_2',
+                name: 'level_2_2_1_2',
                 meta: {
                   mode: 'multiple',
                   icon: 'AntDesignOutlined',
@@ -166,22 +157,26 @@ const Menu = [
                 },
                 component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
               }
-            ]
+            ],
+            component: () => import('@/view/multilevel/level-2-2/level-2-2-1.vue')
           },
           {
-            path: 'level_2_3',
-            name: 'level_2_3',
+            path: 'level_2_2_2',
+            name: 'level_2_2_2',
             meta: {
               mode: 'multiple',
               icon: 'AntDesignOutlined',
-              title: '二级-3'
+              title: '三级'
             },
-            component: () => import('@/view/multilevel/level-2-3.vue')
+            component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
           }
         ]
-      }
+      },
     ]
   }
 ]
 
-export default hideMenuItem.concat(Menu)
+export  {
+  hideMenuItem,
+  Menu
+}

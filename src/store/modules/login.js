@@ -3,7 +3,12 @@ const state = {
   accesstoken: ''
 }
 
-const getters = {}
+const getters = {
+  getUserInfo(state) {
+    const userInfo = localStorage.getItem("userInfo")
+    return JSON.parse(userInfo)
+  }
+}
 const mutations = {
   getUserInfo(state, params) {
     localStorage.setItem('userInfo', JSON.stringify(params))
