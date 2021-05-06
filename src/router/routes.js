@@ -1,4 +1,4 @@
-import Main from '@/components/layout/main.vue'
+import Main from '@/components/layout/main.vue';
 
 /**
  * meta除了原生参数外可配置的参数:
@@ -75,7 +75,7 @@ const hideMenuItem = [
       }
     ]
   }
-]
+];
 
 // 菜单栏路由
 const Menu = [
@@ -88,10 +88,10 @@ const Menu = [
         name: 'home',
         meta: {
           title: '首页',
-          icon: 'AntDesignOutlined',
+          icon: 'AntDesignOutlined'
         },
         component: () => import('@/view/join-page.vue')
-      },
+      }
     ]
   },
   {
@@ -104,11 +104,11 @@ const Menu = [
         meta: {
           title: '文档',
           icon: 'AntDesignOutlined',
-          url: "https://iczer.gitee.io/vue-antd-admin/#/login"
+          url: 'https://iczer.gitee.io/vue-antd-admin/#/login'
           // role: ["admin"]
         },
         component: () => import('@/view/join-page.vue')
-      },
+      }
     ]
   },
   {
@@ -123,7 +123,7 @@ const Menu = [
           access: ['super_admin'],
           icon: 'AntDesignOutlined',
           showAlways: true,
-          title: '二级-2',
+          title: '二级-2'
         },
         component: () => import('@/view/multilevel/level-2-3.vue'),
         children: [
@@ -133,7 +133,7 @@ const Menu = [
             meta: {
               mode: 'multiple',
               icon: 'AntDesignOutlined',
-              title: '三级',
+              title: '三级'
             },
             component: () => import('@/view/multilevel/level-2-3.vue'),
             children: [
@@ -171,12 +171,12 @@ const Menu = [
             component: () => import('@/view/multilevel/level-2-2/level-2-2-2.vue')
           }
         ]
-      },
+      }
     ]
   }
-]
+];
 
-export  {
+export {
   hideMenuItem,
   Menu
-}
+};

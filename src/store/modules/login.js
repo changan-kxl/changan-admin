@@ -1,21 +1,21 @@
 const state = {
   userInfo: {},
   accesstoken: ''
-}
+};
 
 const getters = {
   getUserInfo(state) {
-    const userInfo = localStorage.getItem("userInfo")
-    return JSON.parse(userInfo)
+    const userInfo = localStorage.getItem('userInfo');
+    return JSON.parse(userInfo);
   }
-}
+};
 const mutations = {
   getUserInfo(state, params) {
-    localStorage.setItem('userInfo', JSON.stringify(params))
-    localStorage.setItem('accesstoken', 'accesstoken')
-    state.userInfo = params
+    localStorage.setItem('userInfo', JSON.stringify(params));
+    localStorage.setItem('accesstoken', 'accesstoken');
+    state.userInfo = params;
   }
-}
+};
 
 const actions = {
   login({ state, commit }, params) {
@@ -23,21 +23,21 @@ const actions = {
     return new Promise((resolve, reject) => {
       if (params.user === 'admin' && params.password === '888888') {
         setTimeout(function () {
-          commit('getUserInfo', params)
+          commit('getUserInfo', params);
           resolve({
             result: 1
-          })
-        }, 2000)
+          });
+        }, 2000);
       } else {
         setTimeout(function () {
           resolve({
             result: 0
-          })
-        }, 2000)
+          });
+        }, 2000);
       }
-    })
+    });
   }
-}
+};
 
 export default {
   namespaced: true,
@@ -45,4 +45,4 @@ export default {
   getters,
   mutations,
   actions
-}
+};

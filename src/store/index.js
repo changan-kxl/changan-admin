@@ -1,14 +1,14 @@
-import { createStore } from 'vuex'
-import tagNav from './modules/tagNav'
-import login from './modules/login'
-import app from './modules/app'
+import { createStore } from 'vuex';
+import tagNav from './modules/tagNav';
+import login from './modules/login';
+import app from './modules/app';
 
-const state = {}
+const state = {};
 
-const getters = {}
-const mutations = {}
+const getters = {};
+const mutations = {};
 
-const actions = {}
+const actions = {};
 
 export default createStore({
   modules: {
@@ -20,4 +20,4 @@ export default createStore({
   getters,
   mutations,
   actions
-})
+});
