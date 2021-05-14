@@ -17,9 +17,8 @@
         </div>
       </side-menu>
     </a-layout-sider>
-    <a-layout>
+    <section class="el-container is-vertical">
       <Header v-model:collapsed="collapsed" />
-      <tags-nav></tags-nav>
       <content />
       <a-layout-footer>
         <page-footer
@@ -27,7 +26,7 @@
         copyright="2021 常安出品"
         />
       </a-layout-footer>
-    </a-layout>
+    </section>
   </a-layout>
 </template>
 <script>
