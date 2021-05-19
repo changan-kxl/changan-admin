@@ -48,7 +48,8 @@ const loginGuard = (to, from, next, options) => {
     next({ path: '/login' });
   } else {
     if (to.path === '/login') {
-      next({ path: '/home' });
+      // next({ path: '/home' });
+      next();
     } else {
       next();
     }
@@ -68,11 +69,11 @@ const authorityGuard = (to, from, next, options) => {
     // 省略 axios 请求代码 通过 token 向后台请求用户权限等信息，这里用假数据赋值
     await store.dispatch('app/newRoutes', 'superAdmin');
     let newAddRouters = store.getters['app/addRouters'];
-    newAddRouters.forEach(item => {
+    newAddRouters.forEach((item) => {
       router.addRoute(item);
     });
     next({ path: to.path });
-  }());
+  })();
   next();
 };
 

@@ -23,9 +23,12 @@
     </div>
     <div class="right-box">
       <a-dropdown>
-        <a class="ant-dropdown-link" @click.prevent>
-          Hover me
-        </a>
+        <div class="header-avatar">
+          <span class="avatar ant-avatar-sm ant-avatar">
+            <img src="https://z3.ax1x.com/2021/05/18/ghV5RI.png" />
+          </span>
+          <span class="name">changan</span>
+        </div>
         <template #overlay>
           <a-menu>
             <a-menu-item>
@@ -39,8 +42,6 @@
   <div>
     <tags-nav></tags-nav>
   </div>
-  <!-- <a-layout-header>
-  </a-layout-header> -->
 </template>
 <script>
 import { computed } from 'vue'
@@ -77,8 +78,8 @@ export default {
       context.emit('update:collapsed', !value)
     }
     async function loginout() {
-      await store.commit("login/loginout")
-      router.push("/login")
+      await store.commit('login/loginout')
+      router.push('/login')
     }
     return {
       handleCollapsed,
@@ -97,5 +98,27 @@ export default {
   display: flex;
   align-self: center;
   padding-right: 20px;
+}
+
+.header-avatar {
+  cursor: pointer;
+}
+.ant-avatar-sm {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.ant-avatar > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.header-avatar .name {
+  font-weight: 500;
 }
 </style>

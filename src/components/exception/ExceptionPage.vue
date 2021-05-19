@@ -37,7 +37,7 @@ export default {
 
 <style lang="less" scoped>
 @base-bg-color: #ffff;
-@text-color-second: #000;
+#000000: #000;
 .exception-page {
   border-radius: 4px;
   display: flex;
@@ -60,7 +60,7 @@ export default {
       margin-bottom: 24px;
     }
     .desc {
-      color: @text-color-second;
+      color: #000000;
       font-size: 20px;
       line-height: 28px;
       margin-bottom: 16px;

@@ -25,6 +25,21 @@ const hideMenuItem = [
     component: () => import('@/view/login')
   },
   {
+    path: '/',
+    component: Main,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        meta: {
+          title: '首页',
+          icon: 'AntDesignOutlined'
+        },
+        component: () => import('@/view/workplace/index.vue')
+      }
+    ]
+  },
+  {
     path: '/403',
     name: '403',
     meta: {
@@ -71,7 +86,7 @@ const hideMenuItem = [
           title: '详情',
           icon: 'AntDesignOutlined'
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/workplace/index.vue')
       }
     ]
   }
@@ -84,30 +99,15 @@ const Menu = [
     component: Main,
     children: [
       {
-        path: 'home',
-        name: 'home',
+        path: 'analyse',
+        name: 'analyse',
         meta: {
-          title: '首页',
+          mode: 'multiple',
+          title: '分析页',
           icon: 'AntDesignOutlined'
-        },
-        component: () => import('@/view/join-page.vue')
-      }
-    ]
-  },
-  {
-    path: '/',
-    component: Main,
-    children: [
-      {
-        path: 'doc',
-        name: 'doc',
-        meta: {
-          title: '文档',
-          icon: 'AntDesignOutlined',
-          url: 'https://iczer.gitee.io/vue-antd-admin/#/login'
           // role: ["admin"]
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/workplace/index.vue')
       }
     ]
   },
@@ -176,7 +176,4 @@ const Menu = [
   }
 ];
 
-export {
-  hideMenuItem,
-  Menu
-};
+export { hideMenuItem, Menu };

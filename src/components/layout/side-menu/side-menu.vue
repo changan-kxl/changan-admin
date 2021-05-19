@@ -1,6 +1,12 @@
 <template>
   <slot></slot>
-  <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" @click="clickSMItem">
+  <a-menu
+    theme="dark"
+    mode="inline"
+    v-model:openKeys="openKeys"
+    v-model:selectedKeys="selectedKeys"
+    @click="clickSMItem"
+  >
     <template v-for="item in routes">
       <template v-if="!(item.meta && item.meta.hideInMenu)">
         <template v-if="item.children && item.children.length > 0">
@@ -31,15 +37,11 @@ export default {
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
-    const routes = computed(() => store.getters["app/addRouters"])
+    const routes = computed(() => store.getters['app/addRouters'])
     const openKeys = ref([])
     let selectedKeys = computed(() => {
-      if (route.meta.mode) {
-        return [route.name]
-      }
-      return [route.path]
+      return [route.name]
     })
-
     watch(
       () => route.path,
       () => {
@@ -56,7 +58,7 @@ export default {
     const methods = {
       clickSMItem(e) {
         const { keyPath, key } = e
-        console.log(e);
+        console.log(e)
         // 多级菜单跳转
         if (keyPath.length > 1) {
           const reversePath = keyPath.reverse()
@@ -66,7 +68,7 @@ export default {
           // 一级菜单跳转
           router.push({ path: `/${key}` })
         }
-      }
+      },
     }
 
     return {

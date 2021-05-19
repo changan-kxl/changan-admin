@@ -22,8 +22,8 @@
       <content />
       <a-layout-footer>
         <page-footer
-        link-list="https://github.com/changan-kxl/changanAdmin" 
-        copyright="2021 常安出品"
+          link-list="https://github.com/changan-kxl/changanAdmin"
+          copyright="2021 常安出品"
         />
       </a-layout-footer>
     </section>
@@ -34,7 +34,7 @@ import SideMenu from './side-menu'
 import Content from './content'
 import Header from './header'
 import TagsNav from '../tags-nav'
-import PageFooter  from './footer/PageFooter';
+import PageFooter from './footer/PageFooter'
 import { ref } from 'vue'
 
 export default {
@@ -43,7 +43,7 @@ export default {
     Content,
     Header,
     TagsNav,
-    PageFooter,
+    PageFooter
   },
   setup() {
     return {
@@ -53,5 +53,17 @@ export default {
 }
 </script>
 <style lang="less">
+.main-enter,
+.main-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.main-enter-active {
+  transition: all 0.2s;
+}
+.main-leave-active {
+  position: absolute;
+  transition: all 0.3s;
+}
 @import './index.less';
 </style>
