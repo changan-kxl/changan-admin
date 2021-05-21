@@ -16,7 +16,7 @@ const mutations = {
     state.userInfo = params;
   },
   loginout(state, params) {
-    localStorage.removeItem('userInfo',);
+    localStorage.removeItem('userInfo');
     localStorage.removeItem('accesstoken');
   }
 };

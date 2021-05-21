@@ -28,4 +28,4 @@ export const str = {
       introduce: 'Introduce'
     }
   }
-}
+};

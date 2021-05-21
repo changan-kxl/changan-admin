@@ -17,8 +17,8 @@ const mutations = {
   SET_DATA(state, params) {
     const existItem = state.tagsList.filter((item) => item.key === params.key);
     if (existItem.length > 0) {
-return;
-}
+      return;
+    }
     state.tagsList.push(params);
   },
   DEL_DATA(state, params) {

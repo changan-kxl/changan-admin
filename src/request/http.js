@@ -102,7 +102,7 @@ export function get(url, params) {
       .then((res) => {
         resolve(res.data);
       })
-      .catch((err) => {
+      ['catch']((err) => {
         reject(err.data);
       });
   });
@@ -119,7 +119,7 @@ export function post(url, params) {
       .then((res) => {
         resolve(res.data);
       })
-      .catch((err) => {
+      ['catch']((err) => {
         reject(err.data);
       });
   });

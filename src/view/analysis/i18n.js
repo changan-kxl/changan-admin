@@ -70,4 +70,4 @@ export const i18nStr = {
       stores: 'Stores'
     }
   }
-}
+};

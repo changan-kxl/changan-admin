@@ -6,7 +6,15 @@
     "build": "vite build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lint:create": "eslint --init"
+    "lint:create": "eslint --init",
+    "precommit": "stylelint css/*.less",
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
+    "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
     "ant-design-vue": "^2.1.2",
@@ -29,23 +37,15 @@
     "@vue/compiler-sfc": "^3.0.4",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
-    "husky": "^3.0.5",
+    "husky": "^6.0.0",
     "lint-staged": "^9.2.5",
     "mockjs": "^1.1.0",
+    "prettier": "^2.3.0",
     "vite": "^2.1.3",
     "vite-plugin-mock": "^2.5.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }

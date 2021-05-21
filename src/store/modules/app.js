@@ -7,7 +7,7 @@ const routerData = {
     Menus: []
   },
   getters: {
-    addRouters: state => state.Menus
+    addRouters: (state) => state.Menus
   },
   mutations: {
     setRouters: (state, routers) => {
@@ -20,7 +20,11 @@ const routerData = {
       //  通过递归路由表，删除掉没有权限的路由
       function eachSelect(routers, userRole) {
         for (let j = 0; j < routers.length; j++) {
-          if (routers[j].meta && routers[j].meta.role && routers[j].meta.role.indexOf(userRole) === -1) {
+          if (
+            routers[j].meta &&
+            routers[j].meta.role &&
+            routers[j].meta.role.indexOf(userRole) === -1
+          ) {
             routers.splice(j, 1);
             j = j !== 0 ? j - 1 : j;
           }

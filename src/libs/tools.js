@@ -1,7 +1,7 @@
 export const forEach = (arr, fn) => {
   if (!arr.length || !fn) {
-return;
-}
+    return;
+  }
   let i = -1;
   let len = arr.length;
   while (++i < len) {
@@ -22,8 +22,8 @@ export const getIntersection = (arr1, arr2) => {
   while (++i < len) {
     const item = arr2[i];
     if (arr1.indexOf(item) > -1) {
-res.push(item);
-}
+      res.push(item);
+    }
   }
   return res;
 };
@@ -100,10 +100,10 @@ const getDate = (timeStamp, startType) => {
   const second = getHandledValue(d.getSeconds());
   let resStr = '';
   if (startType === 'year') {
-resStr = year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + second;
-} else {
-resStr = month + '-' + date + ' ' + hours + ':' + minutes;
-}
+    resStr = year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + second;
+  } else {
+    resStr = month + '-' + date + ' ' + hours + ':' + minutes;
+  }
   return resStr;
 };
 
@@ -116,8 +116,8 @@ export const getRelativeTime = (timeStamp) => {
   const IS_MILLISECOND = isMillisecond(timeStamp);
   // 如果是毫秒格式则转为秒格式
   if (IS_MILLISECOND) {
-Math.floor((timeStamp /= 1000));
-}
+    Math.floor((timeStamp /= 1000));
+  }
   // 传入的时间戳可以是数值或字符串类型，这里统一转为数值类型
   timeStamp = Number(timeStamp);
   // 获取当前时间时间戳
@@ -128,32 +128,32 @@ Math.floor((timeStamp /= 1000));
   let diff = currentTime - timeStamp;
   // 如果IS_EARLY为false则差值取反
   if (!IS_EARLY) {
-diff = -diff;
-}
+    diff = -diff;
+  }
   let resStr = '';
   const dirStr = IS_EARLY ? '前' : '后';
   // 少于等于59秒
   if (diff <= 59) {
-resStr = diff + '秒' + dirStr;
-}
+    resStr = diff + '秒' + dirStr;
+  }
   // 多于59秒，少于等于59分钟59秒
   else if (diff > 59 && diff <= 3599) {
-resStr = Math.floor(diff / 60) + '分钟' + dirStr;
-}
+    resStr = Math.floor(diff / 60) + '分钟' + dirStr;
+  }
   // 多于59分钟59秒，少于等于23小时59分钟59秒
   else if (diff > 3599 && diff <= 86399) {
-resStr = Math.floor(diff / 3600) + '小时' + dirStr;
-}
+    resStr = Math.floor(diff / 3600) + '小时' + dirStr;
+  }
   // 多于23小时59分钟59秒，少于等于29天59分钟59秒
   else if (diff > 86399 && diff <= 2623859) {
-resStr = Math.floor(diff / 86400) + '天' + dirStr;
-}
+    resStr = Math.floor(diff / 86400) + '天' + dirStr;
+  }
   // 多于29天59分钟59秒，少于364天23小时59分钟59秒，且传入的时间戳早于当前
   else if (diff > 2623859 && diff <= 31567859 && IS_EARLY) {
-resStr = getDate(timeStamp);
-} else {
-resStr = getDate(timeStamp, 'year');
-}
+    resStr = getDate(timeStamp);
+  } else {
+    resStr = getDate(timeStamp, 'year');
+  }
   return resStr;
 };
 
@@ -166,16 +166,16 @@ export const getExplorer = () => {
     return ua.indexOf(exp) > -1;
   };
   if (isExplorer('MSIE')) {
-return 'IE';
-} else if (isExplorer('Firefox')) {
-return 'Firefox';
-} else if (isExplorer('Chrome')) {
-return 'Chrome';
-} else if (isExplorer('Opera')) {
-return 'Opera';
-} else if (isExplorer('Safari')) {
-return 'Safari';
-}
+    return 'IE';
+  } else if (isExplorer('Firefox')) {
+    return 'Firefox';
+  } else if (isExplorer('Chrome')) {
+    return 'Chrome';
+  } else if (isExplorer('Opera')) {
+    return 'Opera';
+  } else if (isExplorer('Safari')) {
+    return 'Safari';
+  }
 };
 
 /**
@@ -222,8 +222,8 @@ export const off = (function () {
  */
 export const hasKey = (obj, key) => {
   if (key) {
-return key in obj;
-} else {
+    return key in obj;
+  } else {
     let keysArr = Object.keys(obj);
     return keysArr.length;
   }
@@ -238,11 +238,11 @@ export const objEqual = (obj1, obj2) => {
   const keysArr1 = Object.keys(obj1);
   const keysArr2 = Object.keys(obj2);
   if (keysArr1.length !== keysArr2.length) {
-return false;
-} else if (keysArr1.length === 0 && keysArr2.length === 0) {
-return true;
-}
-  /* eslint-disable-next-line */ else {
-return !keysArr1.some((key) => obj1[key] != obj2[key])
-}
+    return false;
+  } else if (keysArr1.length === 0 && keysArr2.length === 0) {
+    return true;
+  } else {
+    /* eslint-disable-next-line */
+    return !keysArr1.some((key) => obj1[key] != obj2[key]);
+  }
 };

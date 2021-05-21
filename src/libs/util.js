@@ -13,12 +13,12 @@ export const getHomeRoute = (routers, homeName = 'home') => {
     if (item.children && item.children.length) {
       let res = getHomeRoute(item.children, homeName);
       if (res.name) {
-return res;
-}
+        return res;
+      }
     } else {
       if (item.name === homeName) {
-homeRoute = item;
-}
+        homeRoute = item;
+      }
     }
   }
   return homeRoute;
@@ -48,10 +48,10 @@ export const getNextRoute = (list, route) => {
   } else {
     const index = list.findIndex((item) => routeEqual(item, route));
     if (index === list.length - 1) {
-res = list[list.length - 2];
-} else {
-res = list[index + 1];
-}
+      res = list[list.length - 2];
+    } else {
+      res = list[index + 1];
+    }
   }
   return res;
 };
