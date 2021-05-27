@@ -7,6 +7,7 @@ import router from './router';
 import App from './App.vue';
 import * as antIcons from '@ant-design/icons-vue';
 import bootstrap from './bootstrap';
+import http from './request/http';
 
 const app = createApp(App);
 
@@ -18,6 +19,7 @@ Object.keys(antIcons).forEach((key) => {
 // 添加icon组件到全局
 app.config.globalProperties.$antIcons = antIcons;
 app.config.globalProperties.$message = message;
+app.config.globalProperties.$http = http;
 
 app.use(store);
 app.use(router);

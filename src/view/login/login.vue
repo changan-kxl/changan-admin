@@ -10,7 +10,7 @@
     <div class="login">
       <a-form v-bind="formItemLayout" layout="horizontal" :model="modelRef" @finish="handleFinish">
         <a-form-item v-bind="validateInfos.user">
-          <a-input v-model:value="modelRef.user" placeholder="admin" size="large">
+          <a-input v-model:value="modelRef.user" placeholder="superAdmin" size="large">
             <template #prefix><UserOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
           </a-input>
         </a-form-item>
@@ -33,8 +33,8 @@
             :loading="logging"
             style="width: 100%; margin-top: 24px"
             size="large"
-            htmlType="submit"
             type="primary"
+            html-type="submit"
             >登录</a-button
           >
         </a-form-item>
@@ -44,25 +44,25 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw } from 'vue'
-import CommonLayout from '@/components/layout/CommonLayout.vue'
-import { useForm } from '@ant-design-vue/use'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-import { message } from 'ant-design-vue'
+import { ref, reactive, toRaw } from 'vue';
+import CommonLayout from '@/components/layout/CommonLayout.vue';
+import { useForm } from '@ant-design-vue/use';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { message } from 'ant-design-vue';
 
 export default {
   components: {
     CommonLayout
   },
   setup() {
-    const store = useStore()
-    const router = useRouter()
-    const logging = ref(false)
+    const store = useStore();
+    const router = useRouter();
+    const logging = ref(false);
     const modelRef = reactive({
       user: '',
       password: undefined
-    })
+    });
     const rulesRef = reactive({
       user: [
         {
@@ -76,36 +76,35 @@ export default {
           message: 'Please input password'
         }
       ]
-    })
-    const { validate, validateInfos } = useForm(modelRef, rulesRef)
-    const systemName = ref('Vue Antd Admin')
+    });
+    const { validate, validateInfos } = useForm(modelRef, rulesRef);
+    const systemName = ref('Vue Antd Admin');
     const formItemLayout = reactive({
       labelCol: { span: 0 },
       wrapperCol: { span: 24 }
-    })
+    });
 
     async function login(values) {
-      const res = await store.dispatch('login/login', values)
-      logging.value = false
+      const res = await store.dispatch('user/login', values);
+      logging.value = false;
       if (res.result === 1) {
-        message.success('登录成功')
-        router.push('/home')
+        message.success('登录成功');
+        router.push('/home');
       } else {
-        message.warning('用户名或密码错误')
-        return
+        message.warning('用户名或密码错误');
+        return;
       }
     }
     async function handleFinish() {
       validate()
         .then(() => {
-          logging.value = true
-          const formValues = toRaw(modelRef)
-          login(formValues)
+          logging.value = true;
+          const formValues = toRaw(modelRef);
+          login(formValues);
         })
-        .catch((err) => {
-          logging.value = false
-          console.log('error', err)
-        })
+        ['catch']((err) => {
+          logging.value = false;
+        });
     }
 
     return {
@@ -115,9 +114,9 @@ export default {
       validateInfos,
       formItemLayout,
       logging
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

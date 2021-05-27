@@ -1,5 +1,10 @@
 <template>
-  <page-layout page-title="工作台">
+  <page-layout
+    page-title="工作台"
+    avatar="https://z3.ax1x.com/2021/05/18/ghV5RI.png"
+    message="'欢迎，changan，要不要打一把 DOTA'"
+    desc="'船长 | 海贼草帽团'"
+  >
     <a-row style="margin-bottom: 40px">
       <a-col :xl="15" :lg="24" :md="24" :sm="24" :xs="24" class="bg-white">
         <a-card
@@ -8,7 +13,7 @@
           :bordered="false"
           :body-style="{ padding: 0 }"
         >
-          <a-card-grid class="cart-box" v-for="item in todoList.list" :key="item.id">
+          <a-card-grid v-for="item in todoList.list" :key="item.id" class="cart-box">
             <div class="ant-card-body">
               <div class="ant-card-meta">
                 <div class="ant-card-meta-detail">

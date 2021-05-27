@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 import tagNav from './modules/tagNav';
-import login from './modules/login';
+import user from './modules/user';
 import app from './modules/app';
 
 const state = {};
@@ -13,7 +13,7 @@ const actions = {};
 export default createStore({
   modules: {
     tagNav,
-    login,
+    user,
     app
   },
   state,

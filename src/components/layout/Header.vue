@@ -1,16 +1,16 @@
 <template>
   <header class="ant-layout-header">
     <component
-      v-if="collapsed"
       :is="'MenuFoldOutlined'"
+      v-if="collapsed"
       class="trigger"
       @click="handleCollapsed(collapsed)"
     />
     <component
+      :is="'MenuUnfoldOutlined'"
       v-else
       class="trigger"
       @click="handleCollapsed(collapsed)"
-      :is="'MenuUnfoldOutlined'"
     />
     <div class="ant-layout-breadcrumb" style="flex: 1">
       <a-breadcrumb separator="">
@@ -22,6 +22,9 @@
       </a-breadcrumb>
     </div>
     <div class="right-box">
+      <div class="full-screen-icon">
+        <component :is="fullscreenIcon" :style="{ fontSize: '20px' }" @click="toggleFullScreen" />
+      </div>
       <a-dropdown>
         <div class="header-avatar">
           <span class="avatar ant-avatar-sm ant-avatar">
@@ -44,10 +47,10 @@
   </div>
 </template>
 <script>
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useStore } from 'vuex'
-import TagsNav from '../tags-nav'
+import { computed, reactive, toRefs } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import TagsNav from '../tags-nav';
 
 export default {
   name: 'Header',
@@ -58,10 +61,14 @@ export default {
       default: true
     }
   },
+  emits: ['update:collapsed'],
   setup(props, context) {
-    const store = useStore()
-    const route = useRoute()
-    const router = useRouter()
+    const state = reactive({
+      fullscreenIcon: 'FullscreenOutlined'
+    });
+    const store = useStore();
+    const route = useRoute();
+    const router = useRouter();
     const breadcrumbList = computed(() => {
       const list =
         route.matched &&
@@ -70,24 +77,43 @@ export default {
             name: item.name,
             path: item.path,
             title: item.meta.title
-          }
-        })
-      return list
-    })
+          };
+        });
+      return list;
+    });
     function handleCollapsed(value) {
-      context.emit('update:collapsed', !value)
+      context.emit('update:collapsed', !value);
     }
     async function loginout() {
-      await store.commit('login/loginout')
-      router.push('/login')
+      await store.commit('login/loginout');
+      router.push('/login');
     }
+
+    // 切换全屏图标
+    const toggleFullscreenIcon = () =>
+      (state.fullscreenIcon =
+        document.fullscreenElement !== null ? 'FullscreenExitOutlined' : 'FullscreenOutlined');
+    // 监听全屏切换事件
+    document.addEventListener('fullscreenchange', toggleFullscreenIcon);
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
     return {
+      ...toRefs(state),
       handleCollapsed,
       breadcrumbList,
-      loginout
-    }
+      loginout,
+      toggleFullScreen
+    };
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .ant-layout-breadcrumb {
@@ -98,6 +124,10 @@ export default {
   display: flex;
   align-self: center;
   padding-right: 20px;
+  .full-screen-icon {
+    margin-right: 10px;
+    padding-top: 5px;
+  }
 }
 
 .header-avatar {

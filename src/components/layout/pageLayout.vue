@@ -4,13 +4,12 @@
       ref="pageHeader"
       :style="`margin-top: ${multiPage ? 0 : -24}px`"
       :title="pageTitle"
-      :logo="logo"
       :avatar="avatar"
     >
       <template #message>{{ message }}</template>
       <template #desc>{{ desc }}</template>
     </page-header>
-    <div ref="page" :class="['page-content']">
+    <div ref="page" :class="['page-content', pageType ? 'bg-fff' : '']">
       <slot></slot>
     </div>
   </div>
@@ -22,21 +21,29 @@ import PageHeader from '@/components/header/PageHeader.vue';
 export default {
   components: { PageHeader },
   props: {
+    multiPage: {
+      type: [String, Boolean],
+      default: ''
+    },
     pageTitle: {
       type: String,
       default: ''
     },
     avatar: {
       type: String,
-      default: 'https://z3.ax1x.com/2021/05/18/ghV5RI.png'
+      default: ''
     },
     message: {
       type: String,
-      default: '欢迎，changan，要不要打一把 DOTA'
+      default: ''
     },
     desc: {
       type: String,
-      default: '船长 | 海贼草帽团'
+      default: ''
+    },
+    pageType: {
+      type: String,
+      default: ''
     }
   }
 };
@@ -61,5 +68,8 @@ export default {
   border-radius: 2px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+.bg-fff {
+  background: #ffffff;
 }
 </style>

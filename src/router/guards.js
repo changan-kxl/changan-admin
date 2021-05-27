@@ -66,12 +66,12 @@ const loginGuard = (to, from, next, options) => {
 const authorityGuard = (to, from, next, options) => {
   (async function getAddRouters() {
     const { store, router } = options;
-    // 省略 axios 请求代码 通过 token 向后台请求用户权限等信息，这里用假数据赋值
-    await store.dispatch('app/newRoutes', 'superAdmin');
+    const role = JSON.parse(localStorage.getItem('userInfo')) || {};
+    await store.dispatch('app/newRoutes', role && role.user);
     let newAddRouters = store.getters['app/addRouters'];
-    newAddRouters.forEach((item) => {
-      router.addRoute(item);
-    });
+    for (let item of newAddRouters) {
+      await router.addRoute(item);
+    }
     next({ path: to.path });
   })();
   next();

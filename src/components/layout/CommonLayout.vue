@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import PageFooter from './footer/PageFooter'
+import { ref } from 'vue';
+import PageFooter from './footer/PageFooter';
 export default {
   name: 'CommonLayout',
   components: { PageFooter },
   setup() {
-    const linkList = ref('https://github.com/changan-kxl/changanAdmin')
-    const copyright = ref('2021 常安出品')
+    const linkList = ref('https://github.com/changan-kxl/changanAdmin');
+    const copyright = ref('2021 常安出品');
     return {
       linkList,
       copyright
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="less">
