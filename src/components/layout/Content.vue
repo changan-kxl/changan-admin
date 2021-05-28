@@ -1,11 +1,9 @@
 <template>
   <a-layout-content>
     <router-view v-slot="{ Component }">
-      <transition name="zoom-fade" mode="out-in" appear>
-        <keep-alive :include="cacheList">
-          <component :is="Component" />
-        </keep-alive>
-      </transition>
+      <keep-alive :include="cacheList">
+        <component :is="Component" />
+      </keep-alive>
     </router-view>
   </a-layout-content>
 </template>
@@ -23,12 +21,8 @@ export default {
               .map((item) => item.name)
           : [])
       ];
-      console.log(list);
       return list;
     }
-  },
-  mounted() {
-    console.log(this.cacheList);
   }
 };
 </script>

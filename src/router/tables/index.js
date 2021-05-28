@@ -11,7 +11,7 @@ export const routes = [
         meta: {
           title: '详情'
         },
-        component: () => import('@/view/tables/detail')
+        component: () => import('@/view/tables/detail.vue')
       }
     ]
   }

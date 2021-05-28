@@ -1,5 +1,5 @@
 import Main from '@/components/layout/main.vue';
-import CommerViews from '@/components/commerViews';
+import CommerViews from '@/components/commerViews.vue';
 import { routes as tablesRoutes } from './tables';
 /**
  * meta除了原生参数外可配置的参数:
@@ -121,7 +121,8 @@ const Menu = [
         meta: {
           mode: 'multiple', //设置该属性，代表是子菜单栏(超过两级必填)
           title: '表格',
-          icon: 'AntDesignOutlined'
+          icon: 'AntDesignOutlined',
+          notCache: true
         },
         component: () => import('@/view/tables/tables.vue')
       }
@@ -249,6 +250,50 @@ const Menu = [
               role: ['superAdmin']
             },
             component: () => import('@/view/permission/superadmin-page.vue')
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Main,
+    children: [
+      {
+        path: 'exception',
+        name: 'exception',
+        meta: {
+          icon: 'AntDesignOutlined',
+          title: '异常页'
+        },
+        component: CommerViews, // 无限极菜单的容器
+        children: [
+          {
+            path: '500',
+            name: '500',
+            meta: {
+              icon: 'AntDesignOutlined',
+              title: '500'
+            },
+            component: () => import('@/view/exception/500.vue')
+          },
+          {
+            path: '403',
+            name: '403',
+            meta: {
+              icon: 'AntDesignOutlined',
+              title: '403'
+            },
+            component: () => import('@/view/exception/403.vue')
+          },
+          {
+            path: '404',
+            name: '404',
+            meta: {
+              icon: 'AntDesignOutlined',
+              title: '404'
+            },
+            component: () => import('@/view/exception/404.vue')
           }
         ]
       }

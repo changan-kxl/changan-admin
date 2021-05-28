@@ -32,8 +32,8 @@ export default {
   },
   computed: {
     children() {
-      return this.parentItem.children
+      return this.parentItem.children;
     }
   }
-}
+};
 </script>

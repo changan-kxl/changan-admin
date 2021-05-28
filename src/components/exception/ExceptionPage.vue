@@ -15,35 +15,39 @@
 
 <script>
 import Config from './typeConfig';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'ExceptionPage',
   props: ['type', 'homeRoute'],
-  data() {
-    return {
-      config: Config
-    };
-  },
-  methods: {
-    backHome() {
-      if (this.homeRoute) {
-        this.$router.push(this.homeRoute);
+  emits: ['backHome'],
+  setup(props, ctx) {
+    const router = useRouter();
+    const config = Config;
+    function backHome() {
+      if (props.homeRoute) {
+        router.push(props.homeRoute);
       }
-      this.$emit('backHome', this.type);
+      ctx.$emit('backHome', props.type);
     }
+    return {
+      config,
+      backHome
+    };
   }
 };
 </script>
 
 <style lang="less" scoped>
 @base-bg-color: #ffff;
-#000000: #000;
 .exception-page {
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: @base-bg-color;
+  padding: 20px 0;
   .img {
     padding-right: 52px;
     zoom: 1;

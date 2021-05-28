@@ -10,7 +10,7 @@
 
 <script>
 import PageLayout from '@/components/layout/pageLayout.vue';
-import { onBeforeMount, reactive } from 'vue';
+import { onBeforeMount, reactive, ref } from 'vue';
 import { getUserList } from '@/request/services/api.js';
 import { useRouter } from 'vue-router';
 export default {
@@ -18,6 +18,7 @@ export default {
     PageLayout
   },
   setup() {
+    const value = ref('');
     const tableData = reactive({
       list: []
     });
@@ -29,6 +30,7 @@ export default {
     });
 
     return {
+      value,
       router,
       tableData,
       columns: [

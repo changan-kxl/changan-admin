@@ -19,7 +19,7 @@
     </a-layout-sider>
     <section class="el-container is-vertical">
       <Header v-model:collapsed="collapsed" />
-      <content />
+      <Content />
       <a-layout-footer>
         <page-footer
           link-list="https://github.com/changan-kxl/changanAdmin"
@@ -30,27 +30,25 @@
   </a-layout>
 </template>
 <script>
-import SideMenu from './side-menu'
-import Content from './content'
-import Header from './header'
-import TagsNav from '../tags-nav'
-import PageFooter from './footer/PageFooter'
-import { ref } from 'vue'
+import SideMenu from './side-menu';
+import Content from './content';
+import Header from './header';
+import PageFooter from './footer/PageFooter';
+import { ref } from 'vue';
 
 export default {
   components: {
     SideMenu,
     Content,
     Header,
-    TagsNav,
     PageFooter
   },
   setup() {
     return {
       collapsed: ref(false)
-    }
+    };
   }
-}
+};
 </script>
 <style lang="less">
 .main-enter,
