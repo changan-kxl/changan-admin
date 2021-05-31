@@ -1,6 +1,7 @@
 {
   "name": "changAnAdmin",
   "version": "0.0.0",
+  "homepage": "https://changan-kxl.github.io/vue3-antd-admin",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
