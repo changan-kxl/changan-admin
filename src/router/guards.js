@@ -72,7 +72,6 @@ const authorityGuard = (to, from, next, options) => {
     for (let item of newAddRouters) {
       await router.addRoute(item);
     }
-    next({ path: to.path });
   })();
   next();
 };

@@ -3163,11 +3163,6 @@ vue-types@^3.0.0:
   dependencies:
     is-plain-object "3.0.1"
 
-vue-virtual-scroll-list@^2.3.1:
-  version "2.3.2"
-  resolved "https://registry.npm.taobao.org/vue-virtual-scroll-list/download/vue-virtual-scroll-list-2.3.2.tgz#20dcdab58cbba4ca8b466ba1c8f318af358d647c"
-  integrity sha1-INzatYy7pMqLRmuhyPMYrzWNZHw=
-
 vue@^3.0.0, vue@^3.0.4:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"

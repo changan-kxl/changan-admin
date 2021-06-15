@@ -1,8 +1,8 @@
 <template>
   <div class="tabs-head">
     <a-tabs
-      hide-add
       v-model:activeKey="activeKey"
+      hide-add
       type="editable-card"
       @edit="onEdit"
       @tabClick="onTabClick"
@@ -52,12 +52,11 @@
   </div>
 </template>
 <script>
-import { ref, computed, watch, onMounted, reactive } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 
 export default {
-  created() {},
   setup() {
     const store = useStore();
     const route = useRoute();
@@ -103,15 +102,16 @@ export default {
     };
 
     const onEdit = (targetKey, action) => {
-      if (action === 'add') {
-      } else {
+      if (action !== 'add') {
         remove(targetKey);
       }
     };
 
     const onTabClick = (targetKey) => {
       const { path } = route;
-      if (path === targetKey) return;
+      if (path === targetKey) {
+        return;
+      }
       router.push(targetKey);
     };
 

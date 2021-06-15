@@ -14,7 +14,7 @@
     />
     <div class="ant-layout-breadcrumb" style="flex: 1">
       <a-breadcrumb separator="">
-        <a-breadcrumb-item>首页</a-breadcrumb-item>
+        <a-breadcrumb-item>工作台</a-breadcrumb-item>
         <template v-for="item in breadcrumbList" :key="item.name">
           <a-breadcrumb-separator v-if="item.title">/</a-breadcrumb-separator>
           <a-breadcrumb-item>{{ item.title }}</a-breadcrumb-item>
@@ -42,6 +42,7 @@
       </a-dropdown>
     </div>
   </header>
+  <!-- 页签 -->
   <div>
     <tags-nav></tags-nav>
   </div>

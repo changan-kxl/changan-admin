@@ -24,10 +24,6 @@ export default {
     parentItem: {
       type: Object,
       default: () => {}
-    },
-    menuData: {
-      type: Object,
-      default: () => []
     }
   },
   computed: {

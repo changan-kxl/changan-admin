@@ -122,9 +122,9 @@ const Menu = [
           mode: 'multiple', //设置该属性，代表是子菜单栏(超过两级必填)
           title: '表格',
           icon: 'AntDesignOutlined',
-          notCache: true
+          notCache: false
         },
-        component: () => import('@/view/tables/tables.vue')
+        component: () => import('@/view/cache/cache-page.vue')
       }
     ]
   },

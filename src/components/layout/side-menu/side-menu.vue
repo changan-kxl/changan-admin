@@ -10,7 +10,7 @@
     <template v-for="item in routes">
       <template v-if="!(item.meta && item.meta.hideInMenu)">
         <template v-if="item.children && item.children.length > 0">
-          <template v-for="c in item.children" :key="c.path">
+          <template v-for="c in item.children">
             <side-menu-item v-if="c.children" :key="c.path" :parent-item="c"></side-menu-item>
             <a-menu-item v-else :key="`${c.path}`">
               <component :is="$antIcons[c.meta.icon]" />
@@ -79,4 +79,3 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped></style>
