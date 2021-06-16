@@ -1,15 +1,5 @@
-import { getHomeRoute, getNextRoute, routeEqual } from '@/libs/util';
-
 const state = {
   tagsList: []
-};
-
-const closePage = (state, route) => {
-  const nextRoute = getNextRoute(state.tagsList, route);
-  state.tagsList = state.tagsList.filter((item) => {
-    return !routeEqual(item, route);
-  });
-  router.push(nextRoute);
 };
 
 const getters = {};

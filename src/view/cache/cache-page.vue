@@ -5,7 +5,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  name: 'CachePage',
+  name: 'cachePage',
   setup() {
     const value = ref('');
     return {

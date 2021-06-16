@@ -1,5 +1,5 @@
 <template>
-  <a-layout-content>
+  <a-layout-content class="ant-layout-content" style="overflow: auto">
     <router-view v-slot="{ Component }">
       <keep-alive :include="cacheList">
         <component :is="Component" />
@@ -8,41 +8,27 @@
   </a-layout-content>
 </template>
 <script>
-// import { computed } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
-  // setup() {
-  //   const tagNavList = computed(() => this.$store.state.tagNav.tagsList);
-  //   const cacheList = computed(() => {
-  //     const list = [
-  //       ...(this.tagNavList.length
-  //         ? this.tagNavList
-  //             .filter((item) => !(item.meta && item.meta.notCache))
-  //             .map((item) => item.name)
-  //         : [])
-  //     ];
-  //     return list;
-  //   });
-  //   return {
-  //     tagNavList,
-  //     cacheList
-  //   };
-  // }
-  computed: {
-    tagNavList() {
-      return this.$store.state.tagNav.tagsList;
-    },
-    cacheList() {
-      // const list = [
-      //   'CommerViews',
-      //   ...(this.tagNavList.length
-      //     ? this.tagNavList
-      //         .filter((item) => !(item.meta && item.meta.notCache))
-      //         .map((item) => item.name)
-      //     : [])
-      // ];
-      // console.log(list);
-      return ['tables'];
-    }
+  setup() {
+    const store = useStore();
+    const tagNavList = computed(() => store.state.tagNav.tagsList);
+    const cacheList = computed(() => {
+      const list = [
+        ...(tagNavList.value.length
+          ? tagNavList.value
+              .filter((item) => !(item.meta && item.meta.notCache))
+              .map((item) => item.name)
+          : [])
+      ];
+      return list;
+    });
+    return {
+      tagNavList,
+      cacheList
+    };
   }
 };
 </script>

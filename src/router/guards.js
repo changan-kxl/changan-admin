@@ -1,6 +1,3 @@
-// import {hasAuthority} from '@/utils/authority-utils'
-// import {loginIgnore} from '@/router/index'
-// import {checkAuthorization} from '@/utils/request'
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -75,37 +72,6 @@ const authorityGuard = (to, from, next, options) => {
   })();
   next();
 };
-
-// /**
-//  * 混合导航模式下一级菜单跳转重定向
-//  * @param to
-//  * @param from
-//  * @param next
-//  * @param options
-//  * @returns {*}
-//  */
-// const redirectGuard = (to, from, next, options) => {
-//   const {store} = options
-//   const getFirstChild = (routes) => {
-//     const route = routes[0]
-//     if (!route.children || route.children.length === 0) {
-//       return route
-//     }
-//     return getFirstChild(route.children)
-//   }
-//   if (store.state.setting.layout === 'mix') {
-//     const firstMenu = store.getters['setting/firstMenu']
-//     if (firstMenu.find(item => item.fullPath === to.fullPath)) {
-//       store.commit('setting/setActivatedFirst', to.fullPath)
-//       const subMenu = store.getters['setting/subMenu']
-//       if (subMenu.length > 0) {
-//         const redirect = getFirstChild(subMenu)
-//         return next({path: redirect.fullPath})
-//       }
-//     }
-//   }
-//   next()
-// }
 
 /**
  * 进度条结束

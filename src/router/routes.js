@@ -124,7 +124,7 @@ const Menu = [
           icon: 'AntDesignOutlined',
           notCache: false
         },
-        component: () => import('@/view/cache/cache-page.vue')
+        component: () => import('@/view/tables/tables.vue')
       }
     ]
   },

@@ -17,16 +17,16 @@
         </div>
       </side-menu>
     </a-layout-sider>
-    <section class="el-container is-vertical">
+    <a-layout class="el-container is-vertical">
       <Header v-model:collapsed="collapsed" />
       <Content />
-      <a-layout-footer>
+      <a-layout-footer class="ant-layout-footer">
         <page-footer
           link-list="https://github.com/changan-kxl/changanAdmin"
           copyright="2021 常安出品"
         />
       </a-layout-footer>
-    </section>
+    </a-layout>
   </a-layout>
 </template>
 <script>

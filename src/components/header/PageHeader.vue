@@ -31,19 +31,23 @@ export default {
   props: {
     title: {
       type: [String, Boolean],
-      required: false
+      required: false,
+      default: ''
     },
     breadcrumb: {
       type: Array,
-      required: false
+      required: false,
+      default: () => []
     },
     logo: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     },
     avatar: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     }
   },
   computed: {}
@@ -51,5 +55,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import 'index';
+@import url('./index.less');
 </style>

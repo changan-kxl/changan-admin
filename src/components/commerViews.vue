@@ -9,36 +9,31 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 export default {
   name: 'CommerViews',
-  computed: {
-    tagNavList() {
-      return this.$store.state.tagNav.tagsList;
-    },
-    notCacheName() {
-      console.log(
-        'notCacheName' + [this.$route.meta && this.$route.meta.notCache ? this.$route.name : '']
-      );
-      return [this.$route.meta && this.$route.meta.notCache ? this.$route.name : ''];
-    },
-    cacheList() {
-      console.log([
-        'CommerViews',
-        ...(this.tagNavList.length
-          ? this.tagNavList
-              .filter((item) => !(item.meta && item.meta.notCache))
-              .map((item) => item.name)
-          : [])
-      ]);
-      return [
-        'CommerViews',
-        ...(this.tagNavList.length
-          ? this.tagNavList
+  setup() {
+    const store = useStore();
+    const notCacheName = computed(() => [
+      this.$route.meta && this.$route.meta.notCache ? this.$route.name : ''
+    ]);
+    const tagNavList = computed(() => store.state.tagNav.tagsList);
+    const cacheList = computed(() => {
+      const list = [
+        ...(tagNavList.value.length
+          ? tagNavList.value
               .filter((item) => !(item.meta && item.meta.notCache))
               .map((item) => item.name)
           : [])
       ];
-    }
+      return list;
+    });
+    return {
+      tagNavList,
+      cacheList,
+      notCacheName
+    };
   }
 };
 </script>
