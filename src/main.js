@@ -22,7 +22,7 @@ app.config.globalProperties.$message = message;
 app.config.globalProperties.$http = http;
 
 app.use(store);
-app.use(router);
+// app.use(router);
 app.use(Antd);
 
 // 系统启动初始化加载
