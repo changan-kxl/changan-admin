@@ -31,8 +31,8 @@
 </template>
 <script>
 import SideMenu from './side-menu'
-import Content from './content'
-import Header from './header'
+import Content from './Content.vue'
+import Header from './Header.vue'
 import PageFooter from './footer/PageFooter'
 import { ref } from 'vue'
 
