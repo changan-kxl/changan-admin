@@ -1,7 +1,6 @@
 {
   "name": "vue3-antd-admin",
   "version": "0.0.0",
-  "homepage": "https://changan-kxl.github.io/vue3-antd-admin",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -17,6 +16,20 @@
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:pretty": "pretty-quick --staged"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kxilong/vue3-antd-admin.git"
+  },
+  "keywords": [
+    "Vite",
+    "Vue3",
+    "TypeScript",
+    "Starter",
+    "Admin"
+  ],
+  "author": "kxilong",
+  "license": "MIT",
+  "homepage": "https://github.com/kxilong/vue3-antd-admin",
   "dependencies": {
     "ant-design-vue": "^2.1.2",
     "axios": "^0.21.1",

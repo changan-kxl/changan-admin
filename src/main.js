@@ -3,7 +3,7 @@ import Antd from 'ant-design-vue';
 import { message } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import store from './store';
-// import router from './router';
+import router from './router';
 import App from './App.vue';
 import * as antIcons from '@ant-design/icons-vue';
 import bootstrap from './bootstrap';
@@ -22,7 +22,7 @@ app.config.globalProperties.$message = message;
 app.config.globalProperties.$http = http;
 
 app.use(store);
-// app.use(router);
+app.use(router);
 app.use(Antd);
 
 // 系统启动初始化加载
