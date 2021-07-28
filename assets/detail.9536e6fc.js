@@ -1,0 +1,1 @@
+import{_ as a}from"./pageLayout.00166ff2.js";import{r as t,o as e,c as o}from"./vendor.a43a2890.js";const r={components:{PageLayout:a}};r.render=function(a,r,s,n,p,f){const u=t("page-layout");return e(),o(u,{"page-title":"详情","page-type":"white"})};export{r as default};

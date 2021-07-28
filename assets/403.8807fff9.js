@@ -1,0 +1,1 @@
+import{_ as e}from"./ExceptionPage.915f93bc.js";import{r as o,o as t,c as n}from"./vendor.a43a2890.js";const a={name:"Exp403",components:{ExceptionPage:e}};a.render=function(e,a,r,s,p,c){const m=o("exception-page");return t(),n(m,{"home-route":"/home",style:"min-height: 100%",type:"403"})};export{a as default};
