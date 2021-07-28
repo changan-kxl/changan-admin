@@ -30,11 +30,11 @@
   </a-layout>
 </template>
 <script>
-import SideMenu from './side-menu';
-import Content from './content';
-import Header from './header';
-import PageFooter from './footer/PageFooter';
-import { ref } from 'vue';
+import SideMenu from './side-menu'
+import Content from './content'
+import Header from './header'
+import PageFooter from './footer/PageFooter'
+import { ref } from 'vue'
 
 export default {
   components: {
@@ -46,9 +46,9 @@ export default {
   setup() {
     return {
       collapsed: ref(false)
-    };
+    }
   }
-};
+}
 </script>
 <style lang="less">
 .main-enter,
