@@ -1,6 +1,6 @@
-import Main from '@/components/layout/Main.vue';
-import CommerViews from '@/components/CommerViews.vue';
-import { routes as tablesRoutes } from './tables';
+import Main from '../components/layout/Main.vue'
+import CommerViews from '../components/commerViews.vue'
+import { routes as tablesRoutes } from './tables'
 /**
  * meta除了原生参数外可配置的参数:
  * meta: {
@@ -70,7 +70,7 @@ const hideMenuItem = [
     },
     component: () => import('@/view/exception/404.vue')
   }
-];
+]
 
 // 菜单栏路由
 const Menu = [
@@ -170,7 +170,8 @@ const Menu = [
                       icon: 'AntDesignOutlined',
                       title: 'level_2_1_1_1'
                     },
-                    component: () => import('@/view/multilevel/level_2_1/level_2_1_1_1.vue')
+                    component: () =>
+                      import('@/view/multilevel/level_2_1/level_2_1_1_1.vue')
                   },
                   {
                     path: 'level_2_1_1_2',
@@ -180,7 +181,8 @@ const Menu = [
                       icon: 'AntDesignOutlined',
                       title: 'level_2_1_1_2'
                     },
-                    component: () => import('@/view/multilevel/level_2_1/level_2_1_1_2.vue')
+                    component: () =>
+                      import('@/view/multilevel/level_2_1/level_2_1_1_2.vue')
                   }
                 ]
               },
@@ -299,6 +301,6 @@ const Menu = [
       }
     ]
   }
-];
+]
 
-export { hideMenuItem, Menu };
+export { hideMenuItem, Menu }

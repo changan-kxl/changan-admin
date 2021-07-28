@@ -9,16 +9,18 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
 export default {
   name: 'CommerViews',
   setup() {
-    const store = useStore();
+    const route = useRoute()
+    const store = useStore()
     const notCacheName = computed(() => [
-      this.$route.meta && this.$route.meta.notCache ? this.$route.name : ''
-    ]);
-    const tagNavList = computed(() => store.state.tagNav.tagsList);
+      route.meta && route.meta.notCache ? route.name : ''
+    ])
+    const tagNavList = computed(() => store.state.tagNav.tagsList)
     const cacheList = computed(() => {
       const list = [
         ...(tagNavList.value.length
@@ -26,14 +28,14 @@ export default {
               .filter((item) => !(item.meta && item.meta.notCache))
               .map((item) => item.name)
           : [])
-      ];
-      return list;
-    });
+      ]
+      return list
+    })
     return {
       tagNavList,
       cacheList,
       notCacheName
-    };
+    }
   }
-};
+}
 </script>
