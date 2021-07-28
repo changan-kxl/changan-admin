@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@ant-design-vue/use@^0.0.1-0":
-  version "0.0.1-alpha.9"
-  resolved "https://registry.yarnpkg.com/@ant-design-vue/use/-/use-0.0.1-alpha.9.tgz#b7df26150469391383ba1c2dd4ba250267a58411"
-  integrity sha512-X+ESJt+e95sRwlSkpzETjc0opE5l34tCjMEm92JkoM4BVl6YxG9IgyX1dBy0W2jF74SSCOiCc7GdIlsPFQvE/g==
-  dependencies:
-    async-validator "^3.4.0"
-    lodash-es "^4.17.15"
-    resize-observer-polyfill "^1.5.1"
-    vue "^3.0.0"
-
 "@ant-design/colors@^5.0.0":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-5.1.1.tgz#800b2186b1e27e66432e67d03ed96af3e21d8940"
@@ -358,27 +348,12 @@
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.10.tgz#f39da7618cee292e39c7274227c34163e30eb3ca"
   integrity sha512-nktQYRnIFrh4DdXiCBjHnsHOMZXDIVcP9qlm/DMfxmjJMtpMGrSZCOKP8j7kDhObNHyqlicwoGLd+a4hf4x9ww==
 
-"@vue/reactivity@3.0.11":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.0.11.tgz#07b588349fd05626b17f3500cbef7d4bdb4dbd0b"
-  integrity sha512-SKM3YKxtXHBPMf7yufXeBhCZ4XZDKP9/iXeQSC8bBO3ivBuzAi4aZi0bNoeE2IF2iGfP/AHEt1OU4ARj4ao/Xw==
-  dependencies:
-    "@vue/shared" "3.0.11"
-
 "@vue/reactivity@3.1.1":
   version "3.1.1"
   resolved "https://registry.nlark.com/@vue/reactivity/download/@vue/reactivity-3.1.1.tgz#9c02fd146a6c3b03e7d658b7cf76f4b69b0f98c8"
   integrity sha1-nAL9FGpsOwPn1li3z3b0tpsPmMg=
   dependencies:
     "@vue/shared" "3.1.1"
-
-"@vue/runtime-core@3.0.11":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@vue/runtime-core/-/runtime-core-3.0.11.tgz#c52dfc6acf3215493623552c1c2919080c562e44"
-  integrity sha512-87XPNwHfz9JkmOlayBeCCfMh9PT2NBnv795DSbi//C/RaAnc/bGZgECjmkD7oXJ526BZbgk9QZBPdFT8KMxkAg==
-  dependencies:
-    "@vue/reactivity" "3.0.11"
-    "@vue/shared" "3.0.11"
 
 "@vue/runtime-core@3.1.1":
   version "3.1.1"
@@ -387,15 +362,6 @@
   dependencies:
     "@vue/reactivity" "3.1.1"
     "@vue/shared" "3.1.1"
-
-"@vue/runtime-dom@3.0.11":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@vue/runtime-dom/-/runtime-dom-3.0.11.tgz#7a552df21907942721feb6961c418e222a699337"
-  integrity sha512-jm3FVQESY3y2hKZ2wlkcmFDDyqaPyU3p1IdAX92zTNeCH7I8zZ37PtlE1b9NlCtzV53WjB4TZAYh9yDCMIEumA==
-  dependencies:
-    "@vue/runtime-core" "3.0.11"
-    "@vue/shared" "3.0.11"
-    csstype "^2.6.8"
 
 "@vue/runtime-dom@3.1.1":
   version "3.1.1"
@@ -498,24 +464,22 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ant-design-vue@^2.1.2:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/ant-design-vue/-/ant-design-vue-2.1.6.tgz#c51cdc858e1b1b8b569f5435eb487f53a3f1745e"
-  integrity sha512-qICxb6Y4f7QuSuh/jbLhZA9SkUBnP9xYfy/E6yD7+1fg04aAzmRK8oLv8ETuGTrROVdSVeic9v/NS2BXEuuARg==
+ant-design-vue@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.nlark.com/ant-design-vue/download/ant-design-vue-2.2.2.tgz?cache=0&sync_timestamp=1626010313314&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fant-design-vue%2Fdownload%2Fant-design-vue-2.2.2.tgz#197388583c4e0b8ccd9c50ed19831ede27c2b919"
+  integrity sha1-GXOIWDxOC4zNnFDtGYMe3ifCuRk=
   dependencies:
-    "@ant-design-vue/use" "^0.0.1-0"
     "@ant-design/icons-vue" "^6.0.0"
     "@babel/runtime" "^7.10.5"
     "@simonwep/pickr" "~1.8.0"
     array-tree-filter "^2.1.0"
     async-validator "^3.3.0"
-    dom-align "^1.10.4"
+    dom-align "^1.12.1"
     dom-scroll-into-view "^2.0.0"
     lodash "^4.17.21"
     lodash-es "^4.17.15"
     moment "^2.27.0"
     omit.js "^2.0.0"
-    resize-observer-polyfill "^1.5.1"
     scroll-into-view-if-needed "^2.2.25"
     shallow-equal "^1.0.0"
     vue-types "^3.0.0"
@@ -576,7 +540,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-async-validator@^3.3.0, async-validator@^3.4.0:
+async-validator@^3.3.0:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
   integrity sha512-8eLCg00W9pIRZSB781UUX/H6Oskmm8xloZfr09lz5bikRpBVDlJ3hRVuxxP1SxcwsEYfJ4IU8Q19Y8/893r3rQ==
@@ -982,10 +946,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-align@^1.10.4:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/dom-align/-/dom-align-1.12.1.tgz#aedbc2c312983b46ea6b7a4d636617336a490ee9"
-  integrity sha512-CdTD9EdA5WviP8oO3n+okOm0Xt7dSuWxRTLcJiW0memwUr3Tvz66JDDCh9cb50IZFHXvBmLoyX454uJU/EVg+g==
+dom-align@^1.12.1:
+  version "1.12.2"
+  resolved "https://registry.nlark.com/dom-align/download/dom-align-1.12.2.tgz#0f8164ebd0c9c21b0c790310493cd855892acd4b"
+  integrity sha1-D4Fk69DJwhsMeQMQSTzYVYkqzUs=
 
 dom-scroll-into-view@^2.0.0:
   version "2.0.1"
@@ -2678,11 +2642,6 @@ require-from-string@^2.0.2:
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
-
 resolve-from@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-3.0.0.tgz#b22c7af7d9d6881bc8b6e653335eebcb0a188748"
@@ -3210,15 +3169,6 @@ vue-types@^3.0.0:
   integrity sha512-IwUC0Aq2zwaXqy74h4WCvFCUtoV0iSWr0snWnE9TnU18S66GAQyqQbRf2qfJtUuiFsBf6qp0MEwdonlwznlcrw==
   dependencies:
     is-plain-object "3.0.1"
-
-vue@^3.0.0:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"
-  integrity sha512-3/eUi4InQz8MPzruHYSTQPxtM3LdZ1/S/BvaU021zBnZi0laRUyH6pfuE4wtUeLvI8wmUNwj5wrZFvbHUXL9dw==
-  dependencies:
-    "@vue/compiler-dom" "3.0.11"
-    "@vue/runtime-dom" "3.0.11"
-    "@vue/shared" "3.0.11"
 
 vue@^3.0.4:
   version "3.1.1"

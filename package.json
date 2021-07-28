@@ -31,7 +31,7 @@
   "license": "MIT",
   "homepage": "https://github.com/kxilong/vue3-antd-admin",
   "dependencies": {
-    "ant-design-vue": "^2.1.2",
+    "ant-design-vue": "^2.2.2",
     "axios": "^0.21.1",
     "echarts": "^5.1.1",
     "fs": "^0.0.1-security",
