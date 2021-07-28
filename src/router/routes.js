@@ -1,5 +1,5 @@
-import Main from '../components/layout/Main.vue'
-import CommerViews from '../components/commerViews.vue'
+import Main from '@/components/layout/Main.vue'
+import CommerViews from '@/components/commerViews.vue'
 import { routes as tablesRoutes } from './tables'
 /**
  * meta除了原生参数外可配置的参数:
