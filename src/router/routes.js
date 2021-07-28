@@ -1,4 +1,4 @@
-import Main from '@/components/layout/Main.vue'
+import Main from '../components/layout/Main.vue'
 import CommerViews from '@/components/commerViews.vue'
 import { routes as tablesRoutes } from './tables'
 /**
