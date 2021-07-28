@@ -1,4 +1,4 @@
-import Main from '@/components/layout/main.vue';
+import Main from '@/components/layout/Main.vue'
 
 export const routes = [
   {
@@ -15,4 +15,4 @@ export const routes = [
       }
     ]
   }
-];
+]
